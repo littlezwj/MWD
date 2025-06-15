@@ -15,7 +15,7 @@ D:/MWD_git/MWD/MWDGame
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-6845
+11829
 Successfully changed project path to: D:/MWD_git/MWD/MWDGame
 D:/MWD_git/MWD/MWDGame
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,14 +49,14 @@ D:/MWD_git/MWD/MWDGame
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [33824]  Target information:
+Player connection [134984]  Target information:
 
-Player connection [33824]  * "[IP] 10.200.239.141 [Port] 0 [Flags] 2 [Guid] 3117274210 [EditorId] 3117274210 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-VJ1099UI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [134984]  * "[IP] 172.20.10.2 [Port] 0 [Flags] 2 [Guid] 1444355247 [EditorId] 1444355247 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-VJ1099UI) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [33824] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [33824] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [134984] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [134984] Host joined alternative multi-casting on [225.0.0.222:34997]...
 [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-Refreshing native plugins compatible for Editor in 27.64 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 22.84 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.42f1c1 (d3f79ae33604)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.42f1c1/Editor/Data/Resources/UnitySubsystems
@@ -72,44 +72,44 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.42f1c1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.42f1c1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.42f1c1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56228
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56828
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.42f1c1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.009197 seconds.
-- Loaded All Assemblies, in  0.308 seconds
+Registered in 0.010872 seconds.
+- Loaded All Assemblies, in  0.369 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.227 seconds
-Domain Reload Profiling: 529ms
-	BeginReloadAssembly (98ms)
+- Finished resetting the current domain, in  0.269 seconds
+Domain Reload Profiling: 634ms
+	BeginReloadAssembly (123ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (27ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (61ms)
-	LoadAllAssembliesAndSetupDomain (108ms)
-		LoadAssemblies (93ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (71ms)
+	LoadAllAssembliesAndSetupDomain (124ms)
+		LoadAssemblies (118ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (107ms)
-			TypeCache.Refresh (105ms)
-				TypeCache.ScanAssembly (95ms)
-			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (0ms)
-	FinalizeReload (227ms)
+		AnalyzeDomain (122ms)
+			TypeCache.Refresh (121ms)
+				TypeCache.ScanAssembly (109ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (270ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (191ms)
+		SetupLoadedEditorAssemblies (228ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (9ms)
-			SetLoadedEditorAssemblies (6ms)
+			InitializePlatformSupportModulesInManaged (10ms)
+			SetLoadedEditorAssemblies (7ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (133ms)
-			ProcessInitializeOnLoadMethodAttributes (41ms)
+			ProcessInitializeOnLoadAttributes (156ms)
+			ProcessInitializeOnLoadMethodAttributes (52ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -118,50 +118,50 @@ Domain Reload Profiling: 529ms
 Worker process is ready to serve import requests
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.635 seconds
+- Loaded All Assemblies, in  0.753 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.885 seconds
-Domain Reload Profiling: 1513ms
-	BeginReloadAssembly (139ms)
+- Finished resetting the current domain, in  0.868 seconds
+Domain Reload Profiling: 1614ms
+	BeginReloadAssembly (168ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (5ms)
+		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (20ms)
-	RebuildCommonClasses (28ms)
-	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (45ms)
-	LoadAllAssembliesAndSetupDomain (408ms)
-		LoadAssemblies (293ms)
+		CreateAndSetChildDomain (24ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (50ms)
+	LoadAllAssembliesAndSetupDomain (484ms)
+		LoadAssemblies (380ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (196ms)
-			TypeCache.Refresh (162ms)
-				TypeCache.ScanAssembly (149ms)
-			ScanForSourceGeneratedMonoScriptInfo (23ms)
-			ResolveRequiredComponents (9ms)
-	FinalizeReload (886ms)
+		AnalyzeDomain (207ms)
+			TypeCache.Refresh (169ms)
+				TypeCache.ScanAssembly (154ms)
+			ScanForSourceGeneratedMonoScriptInfo (26ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (869ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (733ms)
+		SetupLoadedEditorAssemblies (724ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (6ms)
+			InitializePlatformSupportModulesInManaged (7ms)
 			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (82ms)
-			ProcessInitializeOnLoadAttributes (540ms)
-			ProcessInitializeOnLoadMethodAttributes (87ms)
-			AfterProcessingInitializeOnLoad (14ms)
+			BeforeProcessingInitializeOnLoad (99ms)
+			ProcessInitializeOnLoadAttributes (533ms)
+			ProcessInitializeOnLoadMethodAttributes (68ms)
+			AfterProcessingInitializeOnLoad (13ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (6ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
-Refreshing native plugins compatible for Editor in 7.89 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (5ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 6.45 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5875 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 46 unused Assets / (417.4 KB). Loaded Objects now: 6341.
+Unloading 5879 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 46 unused Assets / (418.1 KB). Loaded Objects now: 6345.
 Memory consumption went from 224.6 MB to 224.2 MB.
-Total: 4.551000 ms (FindLiveObjects: 0.428700 ms CreateObjectMapping: 0.374200 ms MarkObjects: 3.573300 ms  DeleteObjects: 0.174000 ms)
+Total: 4.763300 ms (FindLiveObjects: 0.436100 ms CreateObjectMapping: 0.441000 ms MarkObjects: 3.692100 ms  DeleteObjects: 0.192600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -170,153 +170,134 @@ AssetImportParameters requested are different than current active one (requested
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/DestructibleTile.cs: 1ab11ee8f00dbc14a1e6f44fc1b544cd -> 4526d309aea7dddb2f8b0dbe08169718
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/IndestructibleTile.cs: a129a140b166dbbd6447ac244fdaf567 -> 8b969b3592577b321f9580a704854a19
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 964707.790093 seconds.
-  path: Assets/Tilemaps/Tile Palettes/Collision.prefab
-  artifactKey: Guid(0a1aa9a4b1148e642a6d88355f1bf833) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tile Palettes/Collision.prefab using Guid(0a1aa9a4b1148e642a6d88355f1bf833) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'c4cf48b65f131b6bde7b5ce7eefb0377') in 0.283244 seconds
+  Time since last request: 976331.596969 seconds.
+  path: Assets/Scripts/Tiles/New Destructible Tile.asset
+  artifactKey: Guid(e1042561a7fba6a4a90cc34171f9a1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Tiles/New Destructible Tile.asset using Guid(e1042561a7fba6a4a90cc34171f9a1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'fe4487d374a94e0aa6c6e30c27a41d5c') in 0.014232 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 50
+Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000039 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_4.asset
-  artifactKey: Guid(31ebd66f8675d054fb31c94df9ecc8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_4.asset using Guid(31ebd66f8675d054fb31c94df9ecc8fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'e628e822a874b2f6b76a205dad6d488d') in 0.048275 seconds
+  Time since last request: 168.709236 seconds.
+  path: Assets/Scripts/Tiles/Destructible Tile.asset
+  artifactKey: Guid(e1042561a7fba6a4a90cc34171f9a1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Tiles/Destructible Tile.asset using Guid(e1042561a7fba6a4a90cc34171f9a1a3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'f15b9f71a55ce765ec575129cca7f857') in 0.001966 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000030 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_9.asset
-  artifactKey: Guid(262bd545aa88e57439047ba03a11a1e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_9.asset using Guid(262bd545aa88e57439047ba03a11a1e9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '45ffa77fcb6420e6d11873e81e66389f') in 0.013411 seconds
+  Time since last request: 1.634301 seconds.
+  path: Assets/Scripts/Tiles/IndestructibleTile.cs
+  artifactKey: Guid(12c6684280be47142957b959772c553a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Tiles/IndestructibleTile.cs using Guid(12c6684280be47142957b959772c553a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'cd43112dee7c71c2683955c8c8d8a202') in 0.000579 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000023 seconds.
-  path: Assets/Settings/Lit2DSceneTemplate.scenetemplate
-  artifactKey: Guid(d03ed43fc9d8a4f2e9fa70c1c7916eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Settings/Lit2DSceneTemplate.scenetemplate using Guid(d03ed43fc9d8a4f2e9fa70c1c7916eb9) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'f6492977e0f603f7db53d18db9877fc9') in 0.076615 seconds
+  Time since last request: 6.196709 seconds.
+  path: Assets/Scripts/Tiles/New Indestructible Tile.asset
+  artifactKey: Guid(79eeaf03c283af74c9287275866ae8ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Tiles/New Indestructible Tile.asset using Guid(79eeaf03c283af74c9287275866ae8ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'e9eb635a83edc2bc98380fcc508a5977') in 0.001269 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 5
+Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000026 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_1.asset
-  artifactKey: Guid(1a15eebb5a0b2ea40b3728ddbbca5b30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_1.asset using Guid(1a15eebb5a0b2ea40b3728ddbbca5b30) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '604d460871bfea7d53daea3753cfb187') in 0.014075 seconds
+  Time since last request: 12.009516 seconds.
+  path: Assets/Scripts/Tiles/Indestructible Tile.asset
+  artifactKey: Guid(79eeaf03c283af74c9287275866ae8ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Tiles/Indestructible Tile.asset using Guid(79eeaf03c283af74c9287275866ae8ef) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '564e161193c141a7f24079bfe4aa52df') in 0.001549 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+Number of asset objects unloaded after import = 2
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000025 seconds.
-  path: Assets/Tilemaps/Tile Palettes/Test Palette.prefab
-  artifactKey: Guid(2c9fe4177e295c143a22c3a52ffce0bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tile Palettes/Test Palette.prefab using Guid(2c9fe4177e295c143a22c3a52ffce0bc) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
-[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'a4f97b7375d501a0edd562ac62eb3e68') in 0.220189 seconds
+  Time since last request: 1533.029164 seconds.
+  path: Assets/UniversalRenderPipelineGlobalSettings.asset
+  artifactKey: Guid(93b439a37f63240aca3dd4e01d978a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/UniversalRenderPipelineGlobalSettings.asset using Guid(93b439a37f63240aca3dd4e01d978a9f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'cdc99004504967963af718247c37d9db') in 0.009454 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 924
+Number of asset objects unloaded after import = 1
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000034 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_3.asset
-  artifactKey: Guid(975e03c7296f5bd44858cbf20be8277d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_3.asset using Guid(975e03c7296f5bd44858cbf20be8277d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'b19738445a8002687cc703eeaee4b785') in 0.012708 seconds
+  Time since last request: 108.996413 seconds.
+  path: Packages/com.unity.2d.tilemap.extras/Editor/Unity.2D.Tilemap.Extras.Editor.asmdef
+  artifactKey: Guid(cbdf09464b6b87745be748a67e5a21a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.tilemap.extras/Editor/Unity.2D.Tilemap.Extras.Editor.asmdef using Guid(cbdf09464b6b87745be748a67e5a21a0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '8feb1cc41844b4383e366c620215ab20') in 0.012715 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+Number of asset objects unloaded after import = 0
 ========================================================================
 Received Import Request.
-  Time since last request: 0.000036 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_5.asset
-  artifactKey: Guid(32ab4964c254c5d4d85d0b17780194c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_5.asset using Guid(32ab4964c254c5d4d85d0b17780194c0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '24f1a283af5eac7e552d508f801fcbc2') in 0.012006 seconds
+  Time since last request: 1.413509 seconds.
+  path: Packages/com.unity.2d.tilemap.extras/package.json
+  artifactKey: Guid(a9f15b7c9363d9944a7d69248fd279ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.tilemap.extras/package.json using Guid(a9f15b7c9363d9944a7d69248fd279ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'ed45a2f29d52bb3cfee6412333138698') in 0.006462 seconds
 Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000022 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_2.asset
-  artifactKey: Guid(14c7e3eac4af8734b8b04c72cb11d663) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_2.asset using Guid(14c7e3eac4af8734b8b04c72cb11d663) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: 'd7dac66f76f37e7836b967841f943595') in 0.012881 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
-========================================================================
-Received Import Request.
-  Time since last request: 0.000028 seconds.
-  path: Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_6.asset
-  artifactKey: Guid(b4cbbd10fc6ff8d4fbc3e6bbf859c446) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Tilemaps/Tiles/GroundTileSet/Collisions@20_6.asset using Guid(b4cbbd10fc6ff8d4fbc3e6bbf859c446) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
- -> (artifact id: '71baa61a6962e3f4643fe7bd1b430a29') in 0.013163 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 3
+Number of asset objects unloaded after import = 1
 ========================================================================
 Received Prepare
 Caller must complete domain reload
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  1.370 seconds
+- Loaded All Assemblies, in  1.276 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  1.056 seconds
-Domain Reload Profiling: 2421ms
-	BeginReloadAssembly (941ms)
+- Finished resetting the current domain, in  0.776 seconds
+Domain Reload Profiling: 2047ms
+	BeginReloadAssembly (953ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (738ms)
+		DisableScriptedObjects (793ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (56ms)
-	RebuildCommonClasses (33ms)
-	RebuildNativeTypeToScriptingClass (10ms)
-	initialDomainReloadingComplete (43ms)
-	LoadAllAssembliesAndSetupDomain (337ms)
-		LoadAssemblies (414ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (29ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (232ms)
+		LoadAssemblies (299ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (26ms)
-			TypeCache.Refresh (9ms)
+		AnalyzeDomain (17ms)
+			TypeCache.Refresh (5ms)
 				TypeCache.ScanAssembly (0ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
-			ResolveRequiredComponents (16ms)
-	FinalizeReload (1057ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (777ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (774ms)
+		SetupLoadedEditorAssemblies (607ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (7ms)
-			SetLoadedEditorAssemblies (4ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (99ms)
-			ProcessInitializeOnLoadAttributes (570ms)
-			ProcessInitializeOnLoadMethodAttributes (76ms)
-			AfterProcessingInitializeOnLoad (16ms)
+			BeforeProcessingInitializeOnLoad (77ms)
+			ProcessInitializeOnLoadAttributes (442ms)
+			ProcessInitializeOnLoadMethodAttributes (66ms)
+			AfterProcessingInitializeOnLoad (13ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (19ms)
-Refreshing native plugins compatible for Editor in 8.53 ms, found 4 plugins.
+		AwakeInstancesAfterBackupRestoration (13ms)
+Refreshing native plugins compatible for Editor in 9.08 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 5721 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 21 unused Assets / (387.8 KB). Loaded Objects now: 6412.
-Memory consumption went from 203.4 MB to 203.1 MB.
-Total: 4.819600 ms (FindLiveObjects: 0.592800 ms CreateObjectMapping: 0.244900 ms MarkObjects: 3.858400 ms  DeleteObjects: 0.122400 ms)
+Unloading 5725 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 21 unused Assets / (387.7 KB). Loaded Objects now: 6364.
+Memory consumption went from 198.5 MB to 198.1 MB.
+Total: 5.412700 ms (FindLiveObjects: 0.639000 ms CreateObjectMapping: 0.232400 ms MarkObjects: 4.379100 ms  DeleteObjects: 0.160600 ms)
 
 Prepare: number of updated asset objects reloaded= 0
 AssetImportParameters requested are different than current active one (requested -> active):
@@ -326,15 +307,160 @@ AssetImportParameters requested are different than current active one (requested
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
   custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
   custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/DestructibleTile.cs: 1ab11ee8f00dbc14a1e6f44fc1b544cd -> 4526d309aea7dddb2f8b0dbe08169718
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
   custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/IndestructibleTile.cs: a129a140b166dbbd6447ac244fdaf567 -> 8b969b3592577b321f9580a704854a19
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
-TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: 由于线程退出或应用程序请求，已中止 I/O 操作。
-AssetImportWorker is now disconnected from the server
-Process exiting
-Exiting without the bug reporter. Application will terminate with return code 0
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.498 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.644 seconds
+Domain Reload Profiling: 2135ms
+	BeginReloadAssembly (161ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (10ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (40ms)
+	RebuildCommonClasses (28ms)
+	RebuildNativeTypeToScriptingClass (10ms)
+	initialDomainReloadingComplete (39ms)
+	LoadAllAssembliesAndSetupDomain (253ms)
+		LoadAssemblies (288ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (42ms)
+			TypeCache.Refresh (11ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (19ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1645ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (615ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (81ms)
+			ProcessInitializeOnLoadAttributes (456ms)
+			ProcessInitializeOnLoadMethodAttributes (55ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (11ms)
+Refreshing native plugins compatible for Editor in 6.95 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5744 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 22 unused Assets / (0.6 MB). Loaded Objects now: 6400.
+Memory consumption went from 200.0 MB to 199.4 MB.
+Total: 5.351000 ms (FindLiveObjects: 0.427100 ms CreateObjectMapping: 0.592100 ms MarkObjects: 4.051900 ms  DeleteObjects: 0.278900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/RuleTileEditor.cs: 6071792bde5c44dc7d2d534d97cff7f5 -> 79f13bbbfb485ee67c9a14570e36e085
+  custom:scripting/monoscript/fileName/PlaceholderTests.cs: 90432ed4787b2d1bb08ccc63968eb935 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/RuleOverrideTileEditor.cs: 047f3bca11e27aa968990c3905f40c66 -> 54ccbabc2015b49c6431a6b2023ec05b
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:scripting/monoscript/fileName/BasePrefabBrush.cs: b996d13a9279093e872a6d9c5d5427ef -> 
+  custom:scripting/monoscript/fileName/TintTextureGeneratorEditor.cs: 45c158f613d64d77666ea5a72096964c -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/TerrainTile.cs: ca05d2fb5caead560c570bfc8f654f64 -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/precompiled-assembly-types:Unity.2D.Tilemap.Extras: ce4e6a4400ae4ee04724174632a6364c -> 9722aa6e48a25d628be73e787a5a1bb9
+  custom:scripting/monoscript/fileName/HexagonalRuleTileEditor.cs: b90ab8e9c7e2da8dd15aaa07357e4afa -> db810e58b09c64e4891f0d0900bac7f9
+  custom:scripting/monoscript/fileName/AnimatedTile.cs: 91a9f51679161d3118fe9f3d71e96935 -> b22e1be758aa3632efe2ad109fb97030
+  custom:scripting/monoscript/fileName/WeightedRandomTile.cs: 77992bbb9dd8c01bb234215485c71e2d -> 
+  custom:scripting/monoscript/fileName/CoordinateBrush.cs: 9e6ea2968a8226ccee836f2be285d4b7 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:scripting/monoscript/fileName/TintBrushSmooth.cs: ad35b39da6ae5a892e3ffea8e5376758 -> 
+  custom:scripting/monoscript/fileName/MenuItemOrder.cs: ae00a595cdf11fee81818b3b434a3f0c -> 0c2a8b61e17835b8f2084ff2294259d0
+  custom:scripting/monoscript/fileName/PipelineTileMenu.cs: 0c2a8b61e17835b8f2084ff2294259d0 -> 
+  custom:scripting/monoscript/fileName/PrefabRandomBrush.cs: 12f244dcb9a6271b64fe0d5ae7a5b795 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/CustomRuleTileMenu.cs: 8e77eb73ca4670f2a4682000c6955e0a -> 44fb1e06a86558bd44bae993c9daf6c0
+  custom:scripting/monoscript/fileName/BrushMenuItem.cs: 0c2a8b61e17835b8f2084ff2294259d0 -> 
+  custom:scripting/monoscript/fileName/DestructibleTile.cs: 1ab11ee8f00dbc14a1e6f44fc1b544cd -> 4526d309aea7dddb2f8b0dbe08169718
+  custom:scripting/monoscript/fileName/TintTextureGenerator.cs: 847285d400822ed269afc9cd6ee0a7aa -> 
+  custom:scripting/monoscript/fileName/PopulateRuleOverrideTileWizard.cs: 0a6c105418a7d3f9cb482926642d1974 -> e9938d8d26487451054d1df1a65708f7
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/LineBrush.cs: 91a4afac1cfbaaa65eb3a43c6eb5ba16 -> 8db0af8b46a7fc8f13e7177ede2caeba
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/GameObjectBrush.cs: a208513dbb687e1a2d9856772f7b6b60 -> 87ba7a109062396c16824845dba02c1a
+  custom:scripting/monoscript/fileName/RandomTileMenu.cs: 0c2a8b61e17835b8f2084ff2294259d0 -> 
+  custom:scripting/precompiled-assembly-types:Unity.2D.Tilemap.Extras.Editor: f66a82c4b6f94da927ee3731786e33ac -> 5ad91861b07fefd995e74ac55c89582d
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/RandomBrush.cs: 3a6a8104f2a6db0fb5622026282c7514 -> 060c140be746a8829fe39acd3b5de27b
+  custom:scripting/monoscript/fileName/GridInformation.cs: d9af8f70eeed3dcb8154df4d02e221b8 -> 8abdd979e31f8615c6f0260032387547
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/AdvancedRuleOverrideTile.cs: f6f1784ea9e7a4132a9d3e719eb54199 -> 1fddf97303287ca0ab3797af3c741b42
+  custom:scripting/monoscript/fileName/RandomTile.cs: 8012e228cd62d8378c01bf986cbb846a -> 
+  custom:scripting/monoscript/fileName/TintBrush.cs: 889309908e4bd35782e20159c63e7ecd -> 
+  custom:scripting/monoscript/fileName/AnimatedTileEditor.cs: 09124e8dc81736697d0a24d9beef1c14 -> 41202be2ca5b787f20f8458252d021bc
+  custom:scripting/monoscript/fileName/TerrainTileMenu.cs: 0c2a8b61e17835b8f2084ff2294259d0 -> 
+  custom:scripting/monoscript/fileName/PipelineTile.cs: 2f1a46f4924cd702879f3953e0b44436 -> 
+  custom:scripting/monoscript/fileName/IndestructibleTile.cs: a129a140b166dbbd6447ac244fdaf567 -> 8b969b3592577b321f9580a704854a19
+  custom:scripting/monoscript/fileName/IsometricRuleTileEditor.cs: e3c9d8811f9f894c41e36e1da7e4dafa -> 4cf007e646aa016389fb16663382c73c
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/precompiled-assembly-types:Unity.2D.Tilemap.Extras.Placeholder.EditorTests: 92a4b5e0df762afda0a28a5f91c50d7b -> 
+  custom:scripting/monoscript/fileName/GroupBrush.cs: 9fea56b4cd16ae754ac2cbdae2a3de87 -> b4c96b6e07e535d84dea8fa33a1ee653
+  custom:scripting/monoscript/fileName/PrefabBrush.cs: be27453d1ae5f31a5f735f1625d3a504 -> 
+  custom:scripting/monoscript/fileName/AdvancedRuleOverrideTileEditor.cs: df460ffaab9a5006f4906ec3911029e7 -> f5f3e25e9690be1c73bbc0525b4d0b70
+  custom:scripting/monoscript/fileName/RuleOverrideTile.cs: b86daf82cd71ee37dbf03e8b5fb5f33a -> 27a3183bf22a5a9447c8b9239d8f3655
+  custom:scripting/monoscript/fileName/WeightedRandomTileMenu.cs: 0c2a8b61e17835b8f2084ff2294259d0 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 444.948345 seconds.
+  path: Packages/com.unity.2d.tilemap.extras/package.json
+  artifactKey: Guid(a9f15b7c9363d9944a7d69248fd279ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.tilemap.extras/package.json using Guid(a9f15b7c9363d9944a7d69248fd279ec) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'a55a3c47155cf25eb018f0873e6c1740') in 0.024121 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 1.809813 seconds.
+  path: Packages/com.unity.2d.tilemap/package.json
+  artifactKey: Guid(51797d68d3132bb419217a229e09fc47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Packages/com.unity.2d.tilemap/package.json using Guid(51797d68d3132bb419217a229e09fc47) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'a7ecb24f54c15137e538ca79e07711ed') in 0.014300 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 169.949320 seconds.
+  path: Assets/Prefabs/New Prefab Brush.asset
+  artifactKey: Guid(134884e79b780fb459f7944af10932ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/New Prefab Brush.asset using Guid(134884e79b780fb459f7944af10932ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '45355a99c99ae1f51e95712e65028edb') in 0.003499 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 11.932093 seconds.
+  path: Assets/Prefabs/BlockA.asset
+  artifactKey: Guid(134884e79b780fb459f7944af10932ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlockA.asset using Guid(134884e79b780fb459f7944af10932ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'b1970a9775b9911985d5f74406c817dc') in 0.001211 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 107.140369 seconds.
+  path: Assets/Prefabs/BlockA.asset
+  artifactKey: Guid(134884e79b780fb459f7944af10932ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/BlockA.asset using Guid(134884e79b780fb459f7944af10932ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '31a90c0cd22a3bc1ab8751d6d6e9ccdc') in 0.001319 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1

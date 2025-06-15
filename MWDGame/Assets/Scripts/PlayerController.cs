@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
     [Header("控制设置")]
     public ControlScheme controlScheme = ControlScheme.WASD;
     public float moveSpeed = 5f;
+    public GameObject shovelPrefab;  // 预制体：拖拽你的铲子预制体进来
 
     private Rigidbody2D rb;
     private Vector2 moveInput;
     private ContactFilter2D movementFilter;
-    private float collisionOffset = 0.05f;  // 碰撞缓冲
-
+    private float collisionOffset = 0f;  // 碰撞缓冲
     private RaycastHit2D[] castResults = new RaycastHit2D[10];
 
     void Start()
@@ -26,7 +26,6 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic; // Kinematic完全控制碰撞逻辑
 
-        // 设置碰撞过滤器，默认检测所有Layer
         movementFilter = new ContactFilter2D();
         movementFilter.SetLayerMask(Physics2D.DefaultRaycastLayers);
         movementFilter.useTriggers = false;
@@ -35,6 +34,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         moveInput = GetInput();
+        HandlePlaceShovel();  // 处理放置铲子
     }
 
     void FixedUpdate()
@@ -47,18 +47,14 @@ public class PlayerController : MonoBehaviour
 
     private void TryMove(Vector2 direction)
     {
-        // 检测是否有碰撞
         int count = rb.Cast(direction, movementFilter, castResults, moveSpeed * Time.fixedDeltaTime + collisionOffset);
-
         if (count == 0)
         {
-            // 没有碰撞，正常移动
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
         }
         else
         {
-            // 有障碍，不移动
-            // 滑动逻辑
+            // 有障碍时可以考虑加滑动逻辑（目前略）
         }
     }
 
@@ -83,5 +79,33 @@ public class PlayerController : MonoBehaviour
         }
 
         return new Vector2(h, v).normalized;
+    }
+
+    private void HandlePlaceShovel()
+    {
+        if (controlScheme == ControlScheme.WASD)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                PlaceShovel();
+            }
+        }
+        else if (controlScheme == ControlScheme.ArrowKeys)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                PlaceShovel();
+            }
+        }
+    }
+
+    private void PlaceShovel()
+    {
+        if (shovelPrefab != null)
+        {
+            // 取整对齐（可选，避免放置在浮点偏移）
+            Vector3 spawnPos = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), 0);
+            Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
+        }
     }
 }
