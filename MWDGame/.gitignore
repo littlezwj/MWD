@@ -5,6 +5,7 @@
 [Bb]uild/
 [Bb]uilds/
 [Mm]emoryCaptures/
+.vs/
 
 # 忽略系统和编辑器配置
 .vscode/
