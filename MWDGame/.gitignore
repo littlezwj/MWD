@@ -1,0 +1,15 @@
+# 忽略 Unity 缓存和构建文件
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Mm]emoryCaptures/
+
+# 忽略系统和编辑器配置
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.tmp
