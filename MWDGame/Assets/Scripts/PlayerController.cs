@@ -140,10 +140,6 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceShovel()
     {
-        // Vector3Int cellPos = grid.WorldToCell(transform.position); // 重新计算当前位置所在格子
-        // Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
-        // Debug.Log($"Placing shovel at cell {cellPos} world pos {spawnPos}");
-        // Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
         Vector3Int cellPos = grid.WorldToCell(transform.position); // 重新计算当前位置所在格子
         Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
 
