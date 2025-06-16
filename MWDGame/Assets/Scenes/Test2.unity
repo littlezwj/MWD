@@ -773,11 +773,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlScheme: 0
   moveSpeed: 5
-  shovelPrefab: {fileID: 7338069278601385065, guid: 11582f5ade426f740b613436b395d3b8, type: 3}
+  grid: {fileID: 6162093826014846505}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
-  grid: {fileID: 6162093826014846505}
+  playerInventory: {fileID: 1453040403}
+  shovelPlacer: {fileID: 0}
 --- !u!212 &396690926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2612,11 +2613,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controlScheme: 1
   moveSpeed: 5
-  shovelPrefab: {fileID: 7338069278601385065, guid: 11582f5ade426f740b613436b395d3b8, type: 3}
+  grid: {fileID: 6162093826014846505}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 256
-  grid: {fileID: 6162093826014846505}
+  playerInventory: {fileID: 1453040403}
+  shovelPlacer: {fileID: 0}
 --- !u!212 &1596815166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3358,6 +3360,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8983237002779438436, guid: 0c5c8273f737fa348b0f44482e2ef0ac, type: 3}
   m_PrefabInstance: {fileID: 1958022174}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1983041416
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1983041418}
+  - component: {fileID: 1983041417}
+  m_Layer: 0
+  m_Name: ShovelPlacerObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1983041417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983041416}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc0dc465b992c8d41aa817493aebff91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shovelPrefab: {fileID: 7338069278601385065, guid: 11582f5ade426f740b613436b395d3b8, type: 3}
+  grid: {fileID: 6162093826014846505}
+--- !u!4 &1983041418
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983041416}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.2324915, y: -0.65721726, z: -0.034797527}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2042788944
 GameObject:
   m_ObjectHideFlags: 0
@@ -4972,3 +5020,4 @@ SceneRoots:
   - {fileID: 1480600363}
   - {fileID: 1290310079}
   - {fileID: 1897638080}
+  - {fileID: 1983041418}

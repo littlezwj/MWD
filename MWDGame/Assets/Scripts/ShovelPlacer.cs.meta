@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: fc0dc465b992c8d41aa817493aebff91
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shovelPrefab: {fileID: 7338069278601385065, guid: 11582f5ade426f740b613436b395d3b8, type: 3}
+  - grid: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

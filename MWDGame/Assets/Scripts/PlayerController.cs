@@ -1,26 +1,233 @@
+// using System.Collections;
+// using System.Collections.Generic;
+// using UnityEngine;
+
+// public class PlayerController : MonoBehaviour
+// {
+//     public enum ControlScheme { WASD, ArrowKeys }
+
+//     [Header("控制设置")]
+//     public ControlScheme controlScheme = ControlScheme.WASD;
+//     public float moveSpeed = 5f;
+//     public GameObject shovelPrefab;
+//     public LayerMask obstacleLayer;
+//     public Grid grid;
+
+//     [Header("道具逻辑")]
+//     public PlayerInventory playerInventory; 
+
+//     private Rigidbody2D rb;
+//     private bool isMoving = false;
+//     private Vector2 moveDirection;
+//     private Vector3 targetPos;
+
+//     void Start()
+//     {
+//         SnapToGrid();
+//         rb = GetComponent<Rigidbody2D>();
+//     }
+
+//     void Update()
+//     {
+//         if (!isMoving)
+//         {
+//             Vector2 input = GetInput();
+//             if (input != Vector2.zero)
+//             {
+//                 moveDirection = input;
+//                 if (CanMoveToNextTile(moveDirection))
+//                 {
+//                     StartCoroutine(MoveToNextTile(moveDirection));
+//                 }
+//             }
+//             else
+//             {
+//                 HandleItemOrShovel();
+//             }
+//         }
+//     }
+
+//     private void HandleItemOrShovel()
+//     {
+//         if (controlScheme == ControlScheme.WASD)
+//         {
+//             if (Input.GetKeyDown(KeyCode.Space))
+//             {
+//                 UseItemOrShovel();
+//             }
+//         }
+//         else if (controlScheme == ControlScheme.ArrowKeys)
+//         {
+//             if (Input.GetKeyDown(KeyCode.Return))
+//             {
+//                 UseItemOrShovel();
+//             }
+//         }
+//     }
+
+//     private void UseItemOrShovel()
+//     {
+//         if (playerInventory.isEquipped)
+//         {
+//             UseRelicById(playerInventory.relicId);
+//             playerInventory.isEquipped = false;
+//             playerInventory.relicId = 0;
+//         }
+//         else
+//         {
+//             PlaceShovel();
+//         }
+//     }
+
+//     private void UseRelicById(int id)
+//     {
+//         switch (id)
+//         {
+//             case 1:
+//                 Debug.Log("使用道具 1：加速");
+//                 StartCoroutine(SpeedBoost());
+//                 break;
+//             case 2:
+//                 Debug.Log("使用道具 2：清除周围障碍");
+//                 ClearNearbyObstacles();
+//                 break;
+//             default:
+//                 Debug.Log("未知道具ID：" + id);
+//                 break;
+//         }
+//     }
+
+//     private IEnumerator SpeedBoost()
+//     {
+//         moveSpeed *= 2;
+//         yield return new WaitForSeconds(5f);
+//         moveSpeed /= 2;
+//     }
+
+//     private void ClearNearbyObstacles()
+//     {
+//         Vector3Int centerCell = grid.WorldToCell(transform.position);
+//         Vector3 worldPos = grid.GetCellCenterWorld(centerCell);
+//         Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, 1f);
+
+//         foreach (var hit in hits)
+//         {
+//             if (hit.CompareTag("BlockA"))
+//             {
+//                 Destroy(hit.gameObject);
+//             }
+//         }
+//     }
+
+//     private Vector2 GetInput()
+//     {
+//         float h = 0f, v = 0f;
+
+//         if (controlScheme == ControlScheme.WASD)
+//         {
+//             if (Input.GetKey(KeyCode.W)) v += 1f;
+//             if (Input.GetKey(KeyCode.S)) v -= 1f;
+//             if (Input.GetKey(KeyCode.A)) h -= 1f;
+//             if (Input.GetKey(KeyCode.D)) h += 1f;
+//         }
+//         else if (controlScheme == ControlScheme.ArrowKeys)
+//         {
+//             if (Input.GetKey(KeyCode.UpArrow)) v += 1f;
+//             if (Input.GetKey(KeyCode.DownArrow)) v -= 1f;
+//             if (Input.GetKey(KeyCode.LeftArrow)) h -= 1f;
+//             if (Input.GetKey(KeyCode.RightArrow)) h += 1f;
+//         }
+
+//         if (h != 0) v = 0;  // 禁止斜向移动
+//         return new Vector2(h, v);
+//     }
+
+//     private IEnumerator MoveToNextTile(Vector2 direction)
+//     {
+//         isMoving = true;
+
+//         Vector3Int currentCell = grid.WorldToCell(transform.position);
+//         Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
+//         targetPos = grid.GetCellCenterWorld(targetCell);
+
+//         while ((targetPos - transform.position).sqrMagnitude > 0.01f)
+//         {
+//             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+//             yield return null;
+//         }
+
+//         transform.position = targetPos;
+//         isMoving = false;
+
+//         Vector2 input = GetInput();
+//         if (input != Vector2.zero && CanMoveToNextTile(input))
+//         {
+//             moveDirection = input;
+//             StartCoroutine(MoveToNextTile(moveDirection));
+//         }
+//     }
+
+//     private void SnapToGrid()
+//     {
+//         Vector3Int cellPos = grid.WorldToCell(transform.position);
+//         transform.position = grid.GetCellCenterWorld(cellPos);
+//     }
+
+//     private void PlaceShovel()
+//     {
+//         Vector3Int cellPos = grid.WorldToCell(transform.position); // 重新计算当前位置所在格子
+//         Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
+
+//         GameObject shovel = Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
+
+//         // 给新实例的ShovelController赋值grid
+//         ShovelController shovelCtrl = shovel.GetComponent<ShovelController>();
+//         if (shovelCtrl != null)
+//         {
+//             shovelCtrl.grid = grid; // 传入当前PlayerController的grid引用
+//         }
+//     }
+
+//     private bool CanMoveToNextTile(Vector2 direction)
+//     {
+//         Vector3Int currentCell = grid.WorldToCell(transform.position);
+//         Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
+//         Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);
+
+//         Collider2D hitObstacle = Physics2D.OverlapCircle(targetWorldPos, 0.1f, obstacleLayer);
+//         if (hitObstacle != null) return false;
+
+//         Collider2D[] hits = Physics2D.OverlapCircleAll(targetWorldPos, 0.1f);
+//         foreach (var hit in hits)
+//         {
+//             if (hit.CompareTag("Player") && hit.gameObject != this.gameObject)
+//             {
+//                 return false;
+//             }
+//         }
+
+//         return true;
+//     }
+// }
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum ControlScheme
-    {
-        WASD,
-        ArrowKeys
-    }
+    public enum ControlScheme { WASD, ArrowKeys }
 
     [Header("控制设置")]
     public ControlScheme controlScheme = ControlScheme.WASD;
     public float moveSpeed = 5f;
-    public GameObject shovelPrefab;
+    public Grid grid;
+    public LayerMask obstacleLayer;
 
-    public LayerMask obstacleLayer; // 包括：墙体、方块B、其他玩家
+    [Header("组件引用")]
+    public PlayerInventory playerInventory;
+    public ShovelPlacer shovelPlacer;
+
     private Rigidbody2D rb;
-
-    [Header("网格设置")]
-    public Grid grid;  // 直接拖拽你的Tilemap Grid进来
-
     private bool isMoving = false;
     private Vector2 moveDirection;
     private Vector3 targetPos;
@@ -29,6 +236,7 @@ public class PlayerController : MonoBehaviour
     {
         SnapToGrid();
         rb = GetComponent<Rigidbody2D>();
+        moveDirection = Vector2.up; // 初始默认朝上
     }
 
     void Update()
@@ -41,7 +249,6 @@ public class PlayerController : MonoBehaviour
             {
                 moveDirection = input;
 
-                // 检查目标格子是否被占用
                 if (CanMoveToNextTile(moveDirection))
                 {
                     StartCoroutine(MoveToNextTile(moveDirection));
@@ -49,17 +256,50 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                HandlePlaceShovel();
+                HandleInput();
             }
         }
-
     }
 
-    /// 读取键盘输入
+    private void HandleInput()
+    {
+        if (controlScheme == ControlScheme.WASD)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+                ClearBlockInFront();
+
+            if (Input.GetKeyDown(KeyCode.E))
+                shovelPlacer.PlaceShovel(transform.position);
+        }
+        else if (controlScheme == ControlScheme.ArrowKeys)
+        {
+            if (Input.GetKeyDown(KeyCode.Return))
+                ClearBlockInFront();
+
+            if (Input.GetKeyDown(KeyCode.Comma))
+                shovelPlacer.PlaceShovel(transform.position);
+        }
+    }
+
+    private void ClearBlockInFront()
+    {
+        Vector3Int currentCell = grid.WorldToCell(transform.position);
+        Vector3Int targetCell = currentCell + new Vector3Int((int)moveDirection.x, (int)moveDirection.y, 0);
+        Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(targetWorldPos, 0.3f);
+        foreach (var hit in hits)
+        {
+            if (hit.CompareTag("BlockA"))
+            {
+                Destroy(hit.gameObject);
+            }
+        }
+    }
+
     private Vector2 GetInput()
     {
-        float h = 0f;
-        float v = 0f;
+        float h = 0f, v = 0f;
 
         if (controlScheme == ControlScheme.WASD)
         {
@@ -76,19 +316,14 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow)) h += 1f;
         }
 
-        // 只允许一个方向移动（禁止斜着移动）
-        if (h != 0)
-            v = 0;
-
+        if (h != 0) v = 0;
         return new Vector2(h, v);
     }
 
-    /// 执行平滑移动
-    IEnumerator MoveToNextTile(Vector2 direction)
+    private IEnumerator MoveToNextTile(Vector2 direction)
     {
         isMoving = true;
 
-        // 计算目标格子中心位置
         Vector3Int currentCell = grid.WorldToCell(transform.position);
         Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
         targetPos = grid.GetCellCenterWorld(targetCell);
@@ -96,14 +331,12 @@ public class PlayerController : MonoBehaviour
         while ((targetPos - transform.position).sqrMagnitude > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
-            //rb.MovePosition(Vector3.MoveTowards(rb.position, targetPos, moveSpeed * Time.deltaTime));
             yield return null;
         }
 
         transform.position = targetPos;
         isMoving = false;
 
-        // 移动完自动检测是否继续移动（保持按键连贯移动）
         Vector2 input = GetInput();
         if (input != Vector2.zero && CanMoveToNextTile(input))
         {
@@ -112,71 +345,30 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    /// 瞬间对齐到格子中心
     private void SnapToGrid()
     {
         Vector3Int cellPos = grid.WorldToCell(transform.position);
         transform.position = grid.GetCellCenterWorld(cellPos);
     }
 
-    /// 放置铲子逻辑
-    private void HandlePlaceShovel()
-    {
-        if (controlScheme == ControlScheme.WASD)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                PlaceShovel();
-            }
-        }
-        else if (controlScheme == ControlScheme.ArrowKeys)
-        {
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                PlaceShovel();
-            }
-        }
-    }
-
-    private void PlaceShovel()
-    {
-        Vector3Int cellPos = grid.WorldToCell(transform.position); // 重新计算当前位置所在格子
-        Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
-
-        GameObject shovel = Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
-
-        // 给新实例的ShovelController赋值grid
-        ShovelController shovelCtrl = shovel.GetComponent<ShovelController>();
-        if (shovelCtrl != null)
-        {
-            shovelCtrl.grid = grid; // 传入当前PlayerController的grid引用
-        }
-    }
-
-    /// 检查目标格子是否能走
     private bool CanMoveToNextTile(Vector2 direction)
-{
-    Vector3Int currentCell = grid.WorldToCell(transform.position);
-    Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
-    Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);
-
-    // 1. 先检测环境障碍（不可消除方块B、墙体）
-    Collider2D hitObstacle = Physics2D.OverlapCircle(targetWorldPos, 0.1f, obstacleLayer);
-    if (hitObstacle != null)
     {
-        return false;
-    }
+        Vector3Int currentCell = grid.WorldToCell(transform.position);
+        Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
+        Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);
 
-    // 2. 再检测是否有其他玩家站在目标格子
-    Collider2D[] hits = Physics2D.OverlapCircleAll(targetWorldPos, 0.1f);
-    foreach (var hit in hits)
-    {
-        if (hit.CompareTag("Player") && hit.gameObject != this.gameObject)
+        Collider2D hitObstacle = Physics2D.OverlapCircle(targetWorldPos, 0.1f, obstacleLayer);
+        if (hitObstacle != null) return false;
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(targetWorldPos, 0.1f);
+        foreach (var hit in hits)
         {
-            return false; // 有其他玩家在此格子
+            if (hit.CompareTag("Player") && hit.gameObject != this.gameObject)
+            {
+                return false;
+            }
         }
-    }
 
-    return true;
-}
+        return true;
+    }
 }
