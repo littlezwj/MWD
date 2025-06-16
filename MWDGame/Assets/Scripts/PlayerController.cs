@@ -53,7 +53,14 @@ public class PlayerController : MonoBehaviour
         if (controlScheme == ControlScheme.WASD)
         {
             if (Input.GetKeyDown(KeyCode.Space))
-                ClearBlockInFront();
+            {
+                if (!playerInventory.isEquipped){ ClearBlockInFront(); }
+                else
+                {
+                    SkillManager.Instance.RelicSkillTable(playerInventory.relicId, 0);
+                }
+            }
+
 
             if (Input.GetKeyDown(KeyCode.E))
                 shovelPlacer.PlaceShovel(transform.position);
@@ -61,7 +68,13 @@ public class PlayerController : MonoBehaviour
         else if (controlScheme == ControlScheme.ArrowKeys)
         {
             if (Input.GetKeyDown(KeyCode.Return))
-                ClearBlockInFront();
+            {
+                if (!playerInventory.isEquipped) { ClearBlockInFront(); }
+                else
+                {
+                    SkillManager.Instance.RelicSkillTable(playerInventory.relicId, 1);
+                }
+            }
 
             if (Input.GetKeyDown(KeyCode.Backslash))
                 shovelPlacer.PlaceShovel(transform.position);
