@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
                 HandlePlaceShovel();
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.W)) MoveToNextTile(Vector2Int.up);
+        if (Input.GetKeyDown(KeyCode.S)) MoveToNextTile(Vector2Int.down);
+        if (Input.GetKeyDown(KeyCode.A)) MoveToNextTile(Vector2Int.left);
+        if (Input.GetKeyDown(KeyCode.D)) MoveToNextTile(Vector2Int.right);
+        if (Input.GetKeyDown(KeyCode.Space)) PlaceShovel();
     }
 
     /// 读取键盘输入
@@ -136,12 +142,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceShovel()
     {
-        if (shovelPrefab != null)
-        {
-            Vector3Int cellPos = grid.WorldToCell(transform.position);
-            Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
-            Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
-        }
+        Vector3Int cellPos = new Vector3Int(currentCell.x, currentCell.y, 0);
+        Vector3 spawnPos = grid.CellToWorld(cellPos) + grid.cellSize / 2;
+        Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
     }
 
     /// 检查目标格子是否能走
