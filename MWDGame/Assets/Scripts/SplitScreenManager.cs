@@ -9,6 +9,8 @@ public class SplitScreenManager : MonoBehaviour
     [Header("物理相机")]
     public Camera playerOneCamera;
     public Camera playerTwoCamera;
+    public Transform playerOneCameraTransform;
+    public Transform playerTwoCameraTransform;
 
     [Header("虚拟相机")]
     public CinemachineVirtualCamera vcamOne;
@@ -50,7 +52,19 @@ public class SplitScreenManager : MonoBehaviour
 
         // 确保只有一个音频监听器处于活动状态
         DisableExtraAudioListeners();
+
+        playerOneCameraTransform = playerOneCamera.transform;
+        playerTwoCameraTransform = playerTwoCamera.transform;
     }
+
+    /*
+    private void Update()
+    {
+        if(playerOneCameraTransform.rotation.x != 0 || playerOneCameraTransform.rotation.y != 0 || playerTwoCameraTransform.rotation.x != 0 || playerTwoCameraTransform.rotation.y != 0)
+        {
+            playerOneCameraTransform.rotation = Quaternion.Euler(0f, 0f, 0f);
+        }
+    }*/
 
     void SetupCameraViewports()
     {
@@ -101,8 +115,9 @@ public class SplitScreenManager : MonoBehaviour
 
         // 设置物理相机只渲染特定的层
         int defaultLayer = LayerMask.NameToLayer("Default");
-        playerOneCamera.cullingMask = (1 << playerOneLayerIndex) | (1 << defaultLayer);
-        playerTwoCamera.cullingMask = (1 << playerTwoLayerIndex) | (1 << defaultLayer);
+        int obstacleLayer = LayerMask.NameToLayer("obstacleLayer");
+        playerOneCamera.cullingMask = (1 << playerOneLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer);
+        playerTwoCamera.cullingMask = (1 << playerTwoLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer);
     }
 
     void DisableExtraAudioListeners()
