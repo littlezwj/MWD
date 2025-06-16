@@ -97,4 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd79cd7d44ab9df4a9c362b68fbbde6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayTime: 1
+  grid: {fileID: 0}
+  blinkDuration: 0.3
+  blinkCount: 3
+  blockALayer:
+    serializedVersion: 2
+    m_Bits: 256
