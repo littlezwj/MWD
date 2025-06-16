@@ -7,18 +7,15 @@ using Unity.VisualScripting;
 
 public class RelicMono : MonoBehaviour
 {
-    public List<RelicDetails> relicList;
     public int relicId;
     public SpriteRenderer spriteRenderer;
     public Sprite iconOnPlayer;
     public Sprite iconOnMap;
 
-    public RelicDetails GetRelicById(int id) => relicList.FirstOrDefault(r => r.relicId == id);
-
     private void OnEnable()
     {
-        iconOnPlayer = GetRelicById(relicId).iconOnPlayer;
-        iconOnMap = GetRelicById(relicId).iconOnMap;
+        iconOnPlayer = ResourceManager.Instance.GetRelicById(relicId).iconOnPlayer;
+        iconOnMap = ResourceManager.Instance.GetRelicById(relicId).iconOnMap;
     }
     private void Start()
     {
@@ -28,10 +25,12 @@ public class RelicMono : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
+        Debug.Log(coll.name + "物体进入");
         if(coll.gameObject.tag == "Player")
         {
             //TODO:碰到物体的玩家获得该物体
-            //gameObject.();
+            coll.transform.GetChild(0).GetComponent<PlayerInventory>().GetNewItem(relicId);
+            Destroy(this.gameObject);
         }
     }
 }

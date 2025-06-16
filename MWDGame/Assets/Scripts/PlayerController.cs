@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject shovelPrefab;
 
     public LayerMask obstacleLayer; // 包括：墙体、方块B、其他玩家
+    private Rigidbody2D rb;
 
     [Header("网格设置")]
     public Grid grid;  // 直接拖拽你的Tilemap Grid进来
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         SnapToGrid();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -93,6 +95,7 @@ public class PlayerController : MonoBehaviour
         while ((targetPos - transform.position).sqrMagnitude > 0.01f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            //rb.MovePosition(Vector3.MoveTowards(rb.position, targetPos, moveSpeed * Time.deltaTime));
             yield return null;
         }
 
