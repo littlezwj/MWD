@@ -12,14 +12,19 @@ public class RelicMono : MonoBehaviour
     public Sprite iconOnPlayer;
     public Sprite iconOnMap;
 
-    private void OnEnable()
-    {
-        iconOnPlayer = ResourceManager.Instance.GetRelicById(relicId).iconOnPlayer;
-        iconOnMap = ResourceManager.Instance.GetRelicById(relicId).iconOnMap;
-    }
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        if (ResourceManager.Instance != null)
+        {
+            Debug.Log("ResourceManager.Instance 已成功找到！");
+        }
+        else
+        {
+            Debug.LogError("ResourceManager.Instance 未找到！请确认 ResourceManager 脚本已挂载并正确设置单例。");
+        }
+        iconOnPlayer = ResourceManager.Instance.GetRelicById(relicId).iconOnPlayer;
+        iconOnMap = ResourceManager.Instance.GetRelicById(relicId).iconOnMap;
         spriteRenderer.sprite = iconOnMap;
     }
 

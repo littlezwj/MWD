@@ -2720,6 +2720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerOneCamera: {fileID: 1827396318}
   playerTwoCamera: {fileID: 859527948}
+  playerOneCameraTransform: {fileID: 0}
+  playerTwoCameraTransform: {fileID: 0}
   vcamOne: {fileID: 2042788945}
   vcamTwo: {fileID: 1196219445}
   playerOne: {fileID: 2016031689}
