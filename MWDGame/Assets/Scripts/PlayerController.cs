@@ -142,8 +142,8 @@ public class PlayerController : MonoBehaviour
 
     private void PlaceShovel()
     {
-        Vector3Int cellPos = new Vector3Int(currentCell.x, currentCell.y, 0);
-        Vector3 spawnPos = grid.CellToWorld(cellPos) + grid.cellSize / 2;
+        Vector3Int cellPos = grid.WorldToCell(transform.position); // 重新计算当前位置所在格子
+        Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
         Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
     }
 
