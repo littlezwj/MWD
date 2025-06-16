@@ -115,8 +115,9 @@ public class SplitScreenManager : MonoBehaviour
 
         // 设置物理相机只渲染特定的层
         int defaultLayer = LayerMask.NameToLayer("Default");
-        playerOneCamera.cullingMask = (1 << playerOneLayerIndex) | (1 << defaultLayer);
-        playerTwoCamera.cullingMask = (1 << playerTwoLayerIndex) | (1 << defaultLayer);
+        int obstacleLayer = LayerMask.NameToLayer("obstacleLayer");
+        playerOneCamera.cullingMask = (1 << playerOneLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer);
+        playerTwoCamera.cullingMask = (1 << playerTwoLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer);
     }
 
     void DisableExtraAudioListeners()
