@@ -6,8 +6,8 @@ using UnityEngine.Tilemaps;
 public class Shovel : MonoBehaviour
 {
     public float delayBeforeDig = 2f;
-    public Tilemap tilemap;
-    public TileBase tileA;
+    public float digRadius = 1.1f;
+    public LayerMask blockLayer;
     public GameObject[] itemPrefabs;
 
     void Start()
@@ -24,28 +24,30 @@ public class Shovel : MonoBehaviour
 
     void Dig()
     {
-        Vector3Int centerCell = tilemap.WorldToCell(transform.position);
-        Vector3Int[] directions = { Vector3Int.zero, Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
-
-        foreach (var dir in directions)
+        Collider2D[] hits = Physics2D.OverlapBoxAll(transform.position, new Vector2(digRadius*2, digRadius*2), 0f, blockLayer);
+        foreach (Collider2D hit in hits)
         {
-            Vector3Int targetCell = centerCell + dir;
-            TileBase targetTile = tilemap.GetTile(targetCell);
-            if (targetTile == tileA)
+            Block block = hit.GetComponent<Block>();
+            if (block != null && block.IsDestructible())
             {
-                tilemap.SetTile(targetCell, null);
-                TrySpawnItem(targetCell);
+                Destroy(hit.gameObject);
+                TrySpawnItem(hit.transform.position);
             }
         }
     }
 
-    void TrySpawnItem(Vector3Int cellPosition)
+    void TrySpawnItem(Vector3 pos)
     {
         if (Random.value < 0.5f)
         {
             int randIndex = Random.Range(0, itemPrefabs.Length);
-            Vector3 worldPos = tilemap.GetCellCenterWorld(cellPosition);
-            Instantiate(itemPrefabs[randIndex], worldPos, Quaternion.identity);
+            Instantiate(itemPrefabs[randIndex], pos, Quaternion.identity);
         }
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, new Vector2(digRadius*2, digRadius*2));
     }
 }

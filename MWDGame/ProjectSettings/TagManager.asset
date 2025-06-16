@@ -13,7 +13,7 @@ TagManager:
   - UI
   - Player1Layer
   - Player2Layer
-  - 
+  - obstacleLayer
   - 
   - 
   - 
@@ -67,4 +67,7 @@ TagManager:
     locked: 0
   - name: Collisions
     uniqueID: 543898513
+    locked: 0
+  - name: Obstacle
+    uniqueID: 3086252173
     locked: 0
