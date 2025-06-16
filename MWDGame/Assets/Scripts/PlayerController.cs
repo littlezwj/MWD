@@ -13,51 +13,46 @@ public class PlayerController : MonoBehaviour
     [Header("控制设置")]
     public ControlScheme controlScheme = ControlScheme.WASD;
     public float moveSpeed = 5f;
-    public GameObject shovelPrefab;  // 预制体：拖拽你的铲子预制体进来
+    public GameObject shovelPrefab;
 
-    private Rigidbody2D rb;
-    private Vector2 moveInput;
-    private ContactFilter2D movementFilter;
-    private float collisionOffset = 0f;  // 碰撞缓冲
-    private RaycastHit2D[] castResults = new RaycastHit2D[10];
+    public LayerMask obstacleLayer; // 包括：墙体、方块B、其他玩家
+
+    [Header("网格设置")]
+    public Grid grid;  // 直接拖拽你的Tilemap Grid进来
+
+    private bool isMoving = false;
+    private Vector2 moveDirection;
+    private Vector3 targetPos;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        rb.bodyType = RigidbodyType2D.Kinematic; // Kinematic完全控制碰撞逻辑
-
-        movementFilter = new ContactFilter2D();
-        movementFilter.SetLayerMask(Physics2D.DefaultRaycastLayers);
-        movementFilter.useTriggers = false;
+        SnapToGrid();
     }
 
     void Update()
     {
-        moveInput = GetInput();
-        HandlePlaceShovel();  // 处理放置铲子
-    }
-
-    void FixedUpdate()
-    {
-        if (moveInput != Vector2.zero)
+        if (!isMoving)
         {
-            TryMove(moveInput);
+            Vector2 input = GetInput();
+
+            if (input != Vector2.zero)
+            {
+                moveDirection = input;
+
+                // 检查目标格子是否被占用
+                if (CanMoveToNextTile(moveDirection))
+                {
+                    StartCoroutine(MoveToNextTile(moveDirection));
+                }
+            }
+            else
+            {
+                HandlePlaceShovel();
+            }
         }
     }
 
-    private void TryMove(Vector2 direction)
-    {
-        int count = rb.Cast(direction, movementFilter, castResults, moveSpeed * Time.fixedDeltaTime + collisionOffset);
-        if (count == 0)
-        {
-            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
-        }
-        else
-        {
-            // 有障碍时可以考虑加滑动逻辑（目前略）
-        }
-    }
-
+    /// 读取键盘输入
     private Vector2 GetInput()
     {
         float h = 0f;
@@ -78,9 +73,49 @@ public class PlayerController : MonoBehaviour
             if (Input.GetKey(KeyCode.RightArrow)) h += 1f;
         }
 
-        return new Vector2(h, v).normalized;
+        // 只允许一个方向移动（禁止斜着移动）
+        if (h != 0)
+            v = 0;
+
+        return new Vector2(h, v);
     }
 
+    /// 执行平滑移动
+    IEnumerator MoveToNextTile(Vector2 direction)
+    {
+        isMoving = true;
+
+        // 计算目标格子中心位置
+        Vector3Int currentCell = grid.WorldToCell(transform.position);
+        Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
+        targetPos = grid.GetCellCenterWorld(targetCell);
+
+        while ((targetPos - transform.position).sqrMagnitude > 0.01f)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+
+        transform.position = targetPos;
+        isMoving = false;
+
+        // 移动完自动检测是否继续移动（保持按键连贯移动）
+        Vector2 input = GetInput();
+        if (input != Vector2.zero && CanMoveToNextTile(input))
+        {
+            moveDirection = input;
+            StartCoroutine(MoveToNextTile(moveDirection));
+        }
+    }
+
+    /// 瞬间对齐到格子中心
+    private void SnapToGrid()
+    {
+        Vector3Int cellPos = grid.WorldToCell(transform.position);
+        transform.position = grid.GetCellCenterWorld(cellPos);
+    }
+
+    /// 放置铲子逻辑
     private void HandlePlaceShovel()
     {
         if (controlScheme == ControlScheme.WASD)
@@ -103,9 +138,36 @@ public class PlayerController : MonoBehaviour
     {
         if (shovelPrefab != null)
         {
-            // 取整对齐（可选，避免放置在浮点偏移）
-            Vector3 spawnPos = new Vector3(Mathf.Round(transform.position.x), Mathf.Round(transform.position.y), 0);
+            Vector3Int cellPos = grid.WorldToCell(transform.position);
+            Vector3 spawnPos = grid.GetCellCenterWorld(cellPos);
             Instantiate(shovelPrefab, spawnPos, Quaternion.identity);
         }
     }
+
+    /// 检查目标格子是否能走
+    private bool CanMoveToNextTile(Vector2 direction)
+{
+    Vector3Int currentCell = grid.WorldToCell(transform.position);
+    Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
+    Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);
+
+    // 1. 先检测环境障碍（不可消除方块B、墙体）
+    Collider2D hitObstacle = Physics2D.OverlapCircle(targetWorldPos, 0.1f, obstacleLayer);
+    if (hitObstacle != null)
+    {
+        return false;
+    }
+
+    // 2. 再检测是否有其他玩家站在目标格子
+    Collider2D[] hits = Physics2D.OverlapCircleAll(targetWorldPos, 0.1f);
+    foreach (var hit in hits)
+    {
+        if (hit.CompareTag("Player") && hit.gameObject != this.gameObject)
+        {
+            return false; // 有其他玩家在此格子
+        }
+    }
+
+    return true;
+}
 }
