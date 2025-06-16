@@ -4,41 +4,70 @@ using UnityEngine;
 
 public class ShovelController : MonoBehaviour
 {
-    public float delayTime = 1f;
-    private Grid grid;
-    private GridManager gridManager;
+    public Grid grid; // 用于坐标转换
+    public float blinkDuration = 0.3f; // 一次闪烁时间
+    public int blinkCount = 3;
 
-    void Start()
+    private SpriteRenderer spriteRenderer;
+
+    private void Start()
     {
-        grid = GameObject.Find("Grid").GetComponent<Grid>();
-        gridManager = GameObject.Find("GridManager").GetComponent<GridManager>();
-        StartCoroutine(ShovelDelay());
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
+        if (grid == null)
+        {
+            Debug.LogError("Grid is not assigned in ShovelController.");
+            return;
+        }
+
+        StartCoroutine(BlinkAndDestroy());
     }
 
-    IEnumerator ShovelDelay()
+    IEnumerator BlinkAndDestroy()
     {
-        yield return new WaitForSeconds(delayTime);
-        Dig();
+        // 闪烁3次
+        for (int i = 0; i < blinkCount; i++)
+        {
+            spriteRenderer.enabled = false;
+            yield return new WaitForSeconds(blinkDuration);
+            spriteRenderer.enabled = true;
+            yield return new WaitForSeconds(blinkDuration);
+        }
+
+        // 消除BlockA
+        DestroyNearbyBlockA();
+
+        // 自身销毁
         Destroy(gameObject);
     }
 
-    void Dig()
+    private void DestroyNearbyBlockA()
     {
-        Vector3Int cellPos = grid.WorldToCell(transform.position);
-        Vector2Int center = new Vector2Int(cellPos.x, cellPos.y);
+        Vector3Int centerCell = grid.WorldToCell(transform.position);
 
-        for (int x = -1; x <= 1; x++)
+    Vector3Int[] directions = new Vector3Int[]
+    {
+        centerCell,
+        centerCell + new Vector3Int(0, 1, 0),
+        centerCell + new Vector3Int(0, -1, 0),
+        centerCell + new Vector3Int(1, 0, 0),
+        centerCell + new Vector3Int(-1, 0, 0),
+    };
+
+    float radius = 0.3f; // 适当半径检测格子内物体
+
+    foreach (var cell in directions)
+    {
+        Vector3 worldPos = grid.GetCellCenterWorld(cell);
+
+        Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, radius);
+        foreach (var hit in hits)
         {
-            for (int y = -1; y <= 1; y++)
+            if (hit.CompareTag("BlockA"))
             {
-                Vector2Int pos = center + new Vector2Int(x, y);
-                if (gridManager.gridMap.ContainsKey(pos) && gridManager.gridMap[pos] == BlockType.BlockA)
-                {
-                    gridManager.gridMap[pos] = BlockType.Empty;
-                    gridManager.tilemap.SetTile(new Vector3Int(pos.x, pos.y, 0), null);
-                    // TODO：掉落道具
-                }
+                Destroy(hit.gameObject);
             }
         }
+    }
     }
 }
