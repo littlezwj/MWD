@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI timerTextLeft;// 拖入 TextMeshPro 组件
     public TextMeshProUGUI timerTextRight;// 拖入 TextMeshPro 组件
     public float timeLeft = 60f;        // 初始倒计时 60 秒
+    private bool countToZero;
 
     private bool isRunning = false;
 

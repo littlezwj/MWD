@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerInventory : MonoBehaviour
 {
+    public Image relicImage;
     private SpriteRenderer sr;
     public bool isEquipped = false;
     public int relicId;
@@ -20,10 +23,13 @@ public class PlayerInventory : MonoBehaviour
         {
             isEquipped = true;
             sr.sprite = ResourceManager.Instance.GetRelicById(itemId).iconOnPlayer;
+            relicImage.sprite = ResourceManager.Instance.GetRelicById(itemId).iconOnPlayer;
+            relicImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = ResourceManager.Instance.GetRelicById(itemId).relicName;
+            relicImage.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ResourceManager.Instance.GetRelicById(itemId).relicDescription;
         }
         else
         {
-
+            //TODO:玩家背包中已有道具的前提下获得新的道具
         }
     }
 }

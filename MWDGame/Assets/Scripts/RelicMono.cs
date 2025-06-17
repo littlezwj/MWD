@@ -33,7 +33,6 @@ public class RelicMono : MonoBehaviour
         Debug.Log(coll.name + "物体进入");
         if(coll.gameObject.tag == "Player")
         {
-            //TODO:碰到物体的玩家获得该物体
             coll.transform.GetChild(0).GetComponent<PlayerInventory>().GetNewItem(relicId);
             Destroy(this.gameObject);
         }

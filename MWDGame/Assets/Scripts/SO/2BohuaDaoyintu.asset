@@ -10,12 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb009d94804602741a280c2dc6ea0529, type: 3}
-  m_Name: Luoyangchan
+  m_Name: 2BohuaDaoyintu
   m_EditorClassIdentifier: 
-  relicId: 404
-  relicName: "\u6D4B\u8BD5\u6D1B\u9633\u94F2"
-  iconOnPlayer: {fileID: 21300000, guid: be7bcae3744abf348aec42ea4e55f446, type: 3}
-  iconOnMap: {fileID: 21300000, guid: be7bcae3744abf348aec42ea4e55f446, type: 3}
-  relicEffect: {fileID: 0}
+  relicId: 102
+  relicName: "\u5E1B\u753B\u300A\u5BFC\u5F15\u56FE\u300B"
+  iconOnPlayer: {fileID: 21300000, guid: de2f97bb1edb2704c95a3cf723ab15f3, type: 3}
+  iconOnMap: {fileID: 21300000, guid: de2f97bb1edb2704c95a3cf723ab15f3, type: 3}
   isImportant: 0
-  relicDescription: 
+  relicDescription: "\u53EF\u4EE5\u589E\u52A0\u79FB\u52A8\u901F\u5EA6"
