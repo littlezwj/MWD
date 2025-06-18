@@ -11,5 +11,6 @@ public class RelicDetails : ScriptableObject
     public Sprite iconOnMap;
     //public RelicEffectBase relicEffect;
     public bool isImportant;
+    public bool isUsable;
     public string relicDescription;
 }

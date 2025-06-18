@@ -38,7 +38,10 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        GameCalculate();
+        if (!isRunning)
+        {
+            GameCalculate(false);
+        }
     }
 
     IEnumerator StartCountdown()
@@ -58,12 +61,9 @@ public class GameManager : MonoBehaviour
         isRunning = false;
     }
 
-    public void GameCalculate()
+    public void GameCalculate(bool player1Win)
     {
-        if (!isRunning)
-        {
             winDisplay.text = player1Win ? "Player1 Win!" : "Player2 Win!";
             winDisplay.gameObject.SetActive(true);
-        }
     }
 }

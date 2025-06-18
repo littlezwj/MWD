@@ -11,6 +11,7 @@ public class RelicMono : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite iconOnPlayer;
     public Sprite iconOnMap;
+    public float spawnTime;
 
     private void Start()
     {
@@ -31,10 +32,15 @@ public class RelicMono : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D coll)
     {
         Debug.Log(coll.name + "物体进入");
-        if(coll.gameObject.tag == "Player")
+        if (Time.time - spawnTime < 0.5f)
+            return;
+        else
         {
-            coll.transform.GetChild(0).GetComponent<PlayerInventory>().GetNewItem(relicId);
-            Destroy(this.gameObject);
+            if (coll.gameObject.tag == "Player")
+            {
+                coll.transform.GetChild(0).GetComponent<PlayerInventory>().GetNewItem(relicId);
+                Destroy(this.gameObject);
+            }
         }
     }
 }
