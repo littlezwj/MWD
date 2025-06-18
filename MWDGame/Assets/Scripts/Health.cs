@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+
+public class Health : MonoBehaviour
+{
+    public int maxHealth = 3;
+    public int currentHealth;
+    public GameObject healthUI; // 拖入 UI 父物体
+    private TMP_Text healthText;
+
+    public float respawnDelay = 3f;
+    private Vector3 spawnPosition;
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        spawnPosition = transform.position;
+        healthText = healthUI.GetComponentInChildren<TMP_Text>();
+        UpdateHealthUI();
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth--;
+        UpdateHealthUI();
+
+        if (currentHealth <= 0)
+        {
+            DieAndRespawn();
+        }
+    }
+
+    void UpdateHealthUI()
+    {
+        if (healthText != null)
+        {
+            healthText.text = currentHealth.ToString();
+        }
+    }
+
+    void DieAndRespawn()
+    {
+        Debug.Log($"{gameObject.name} died!");
+        gameObject.SetActive(false); // 暂时关闭角色
+        Invoke(nameof(Respawn), respawnDelay);
+    }
+
+    void Respawn()
+    {
+        currentHealth = maxHealth;
+        UpdateHealthUI();
+
+        transform.position = spawnPosition; // 回到出生点
+        gameObject.SetActive(true); // 重新激活
+        Debug.Log($"{gameObject.name} respawned!");
+    }
+
+}

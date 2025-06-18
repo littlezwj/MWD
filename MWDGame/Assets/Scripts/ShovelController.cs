@@ -44,30 +44,38 @@ public class ShovelController : MonoBehaviour
     private void DestroyNearbyBlockA()
     {
         Vector3Int centerCell = grid.WorldToCell(transform.position);
-
-    Vector3Int[] directions = new Vector3Int[]
-    {
-        centerCell,
-        centerCell + new Vector3Int(0, 1, 0),
-        centerCell + new Vector3Int(0, -1, 0),
-        centerCell + new Vector3Int(1, 0, 0),
-        centerCell + new Vector3Int(-1, 0, 0),
-    };
-
-    float radius = 0.3f; // 适当半径检测格子内物体
-
-    foreach (var cell in directions)
-    {
-        Vector3 worldPos = grid.GetCellCenterWorld(cell);
-
-        Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, radius);
-        foreach (var hit in hits)
+        Vector3Int[] directions = new Vector3Int[]
         {
-            if (hit.CompareTag("BlockA"))
+            centerCell,
+            centerCell + new Vector3Int(0, 1, 0),
+            centerCell + new Vector3Int(0, -1, 0),
+            centerCell + new Vector3Int(1, 0, 0),
+            centerCell + new Vector3Int(-1, 0, 0),
+        };
+
+        float radius = 0.3f;
+
+        foreach (var cell in directions)
+        {
+            Vector3 worldPos = grid.GetCellCenterWorld(cell);
+            Collider2D[] hits = Physics2D.OverlapCircleAll(worldPos, radius);
+
+            foreach (var hit in hits)
             {
-                Destroy(hit.gameObject);
+                // 清除 BlockA
+                if (hit.CompareTag("BlockA"))
+                {
+                    Destroy(hit.gameObject);
+                }
+
+                // 无论是谁，只要是玩家就扣血
+                Health health = hit.GetComponent<Health>();
+                if (health != null)
+                {
+                    health.TakeDamage(); // 直接扣血
+                }
             }
         }
     }
-    }
+
 }
