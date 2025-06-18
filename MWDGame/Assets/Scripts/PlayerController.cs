@@ -95,6 +95,16 @@ public class PlayerController : MonoBehaviour
             {
                 Destroy(hit.gameObject);
             }
+
+            // 如果前方格子里是另一个玩家
+            if (hit.CompareTag("Player") && hit.gameObject != this.gameObject)
+            {
+                Health otherHealth = hit.GetComponent<Health>();
+                if (otherHealth != null)
+                {
+                    otherHealth.TakeDamage(1);
+                }
+            }
         }
     }
 
