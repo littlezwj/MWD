@@ -69,12 +69,14 @@
     <Compile Include="Assets\Scripts\RelicMono.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ShovelController.cs" />
+    <Compile Include="Assets\Scripts\ArrowMove.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\StealTrigger.cs" />
     <Compile Include="Assets\Scripts\SplitScreenManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\SO\RelicDetails.cs" />
     <Compile Include="Assets\Scripts\ShovelPlacer.cs" />
+    <Compile Include="Assets\Scripts\ArrowShooter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
