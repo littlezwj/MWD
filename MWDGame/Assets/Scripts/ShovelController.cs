@@ -72,7 +72,7 @@ public class ShovelController : MonoBehaviour
                 Health health = hit.GetComponent<Health>();
                 if (health != null)
                 {
-                    health.TakeDamage(); // 直接扣血
+                    health.TakeDamage(1); // 直接扣血
                 }
             }
         }

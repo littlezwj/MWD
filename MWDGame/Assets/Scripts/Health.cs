@@ -22,9 +22,9 @@ public class Health : MonoBehaviour
         UpdateHealthUI();
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damageAmount)
     {
-        currentHealth--;
+        currentHealth -= damageAmount;
         UpdateHealthUI();
 
         if (currentHealth <= 0)
