@@ -34,7 +34,6 @@ public class SkillManager : MonoBehaviour
                 Debug.LogError("没有找到对应编号的道具技能！");
                 break;
         }
-        players[player].playerInventory.isEquipped = false;
-        players[player].playerInventory.relicId = 0;
+        players[player].playerInventory.ResetInvetory();
     }
 }

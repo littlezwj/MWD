@@ -32,4 +32,13 @@ public class PlayerInventory : MonoBehaviour
             //TODO:玩家背包中已有道具的前提下获得新的道具
         }
     }
+
+    public void ResetInvetory()
+    {
+        isEquipped = false;
+        relicId = 0;
+        relicImage.sprite = null;
+        relicImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " ";
+        relicImage.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = " ";
+    }
 }

@@ -1,20 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI timerTextLeft;// 拖入 TextMeshPro 组件
-    public TextMeshProUGUI timerTextRight;// 拖入 TextMeshPro 组件
-    public float timeLeft = 60f;        // 初始倒计时 60 秒
-    private bool countToZero;
+    // 单例实例
+    public static GameManager Instance { get; private set; }
+
+    public TextMeshProUGUI winDisplay;
+    public TextMeshProUGUI timerTextLeft;
+    public TextMeshProUGUI timerTextRight;
+    public float timeLeft = 60f;
+    public bool player1Win = true;
 
     private bool isRunning = false;
 
-    void Start()
+    private void Awake()
+    {
+        // 实现单例
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        // 如果你希望在场景切换时保持该对象存在
+        // DontDestroyOnLoad(gameObject);
+    }
+
+    private void Start()
     {
         StartCoroutine(StartCountdown());
+    }
+
+    private void Update()
+    {
+        GameCalculate();
     }
 
     IEnumerator StartCountdown()
@@ -34,8 +58,12 @@ public class GameManager : MonoBehaviour
         isRunning = false;
     }
 
-    public void GameOver(int winner)
+    public void GameCalculate()
     {
-
+        if (!isRunning)
+        {
+            winDisplay.text = player1Win ? "Player1 Win!" : "Player2 Win!";
+            winDisplay.gameObject.SetActive(true);
+        }
     }
 }
