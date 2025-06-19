@@ -59,6 +59,7 @@ public class PlayerInventory : MonoBehaviour
         {
             isEquipped = false;
             relicId = 0;
+            sr.sprite = null;
             relicImage.sprite = null;
             relicImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " ";
             relicImage.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = " ";

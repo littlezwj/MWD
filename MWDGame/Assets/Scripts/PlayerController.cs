@@ -101,6 +101,7 @@ public class PlayerController : MonoBehaviour
             if (hit.CompareTag("BlockA"))
             {
                 Destroy(hit.gameObject);
+                RelicManager.Instance.TryGenerateRelic(hit.gameObject.transform.position); 
             }
 
             // 如果前方格子里是另一个玩家

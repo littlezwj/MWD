@@ -66,6 +66,7 @@ public class ShovelController : MonoBehaviour
                 if (hit.CompareTag("BlockA"))
                 {
                     Destroy(hit.gameObject);
+                    RelicManager.Instance.TryGenerateRelic(hit.gameObject.transform.position);
                 }
 
                 // 无论是谁，只要是玩家就扣血

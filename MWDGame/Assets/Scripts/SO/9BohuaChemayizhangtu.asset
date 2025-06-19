@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   relicId: 109
   relicName: 
-  iconOnPlayer: {fileID: 21300000, guid: 7acccb5ac1b45154e983a0dd3b99e2a3, type: 3}
-  iconOnMap: {fileID: 21300000, guid: 7acccb5ac1b45154e983a0dd3b99e2a3, type: 3}
+  iconOnPlayer: {fileID: 21300000, guid: aed22df01f3dba64e8dba4bdf83a1948, type: 3}
+  iconOnMap: {fileID: 21300000, guid: aed22df01f3dba64e8dba4bdf83a1948, type: 3}
   isImportant: 0
   isUsable: 1
   relicDescription: "\u4F7F\u7528\u540E\u53EF\u4EE5\u76F4\u63A5\u7A7F\u8FC7\u969C\u788D\u7269"
