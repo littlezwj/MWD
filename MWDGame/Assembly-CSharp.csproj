@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\SplitScreenManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\SO\RelicDetails.cs" />
+    <Compile Include="Assets\Scripts\KeyItem.cs" />
     <Compile Include="Assets\Scripts\ShovelPlacer.cs" />
     <Compile Include="Assets\Scripts\ArrowShooter.cs" />
   </ItemGroup>
