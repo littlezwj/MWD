@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class StealTrigger : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class StealTrigger : MonoBehaviour
             PlayerInventory inventory = coll.gameObject.transform.GetChild(0).GetComponent<PlayerInventory>();
             if (inventory != null)
             {
-                Debug.Log("Player1Inventory进入！");
+                //Debug.Log("Player1Inventory进入！");
                 bool getArtifact = ResourceManager.Instance.GetRelicById(inventory.relicId).isImportant;
                 if (getArtifact)
                 {
@@ -21,7 +20,7 @@ public class StealTrigger : MonoBehaviour
             }
             else
             {
-                Debug.Log("未找到对应的PlayerInventory组件!");
+                //Debug.Log("未找到对应的PlayerInventory组件!");
             }
         }
     }

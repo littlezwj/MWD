@@ -45,7 +45,7 @@ public class ArrowShooter : MonoBehaviour
         {
             RaycastHit2D[] hits = Physics2D.RaycastAll(origin, dir, rayLength);
 
-            Debug.DrawRay(origin, dir * rayLength * mapGrid.cellSize.x, Color.red, 0.5f); // 可视化射线
+            //Debug.DrawRay(origin, dir * rayLength * mapGrid.cellSize.x, Color.red, 0.5f); // 可视化射线
 
             foreach (RaycastHit2D hit in hits)
             {
@@ -54,14 +54,14 @@ public class ArrowShooter : MonoBehaviour
                 // 如果是阻挡物，停止射线
                 if (((1 << hit.collider.gameObject.layer) & blockingLayer) != 0)
                 {
-                    Debug.Log("[" + dir + "] 射线被阻挡，停止在：" + hit.collider.name);
+                    //Debug.Log("[" + dir + "] 射线被阻挡，停止在：" + hit.collider.name);
                     break;
                 }
 
                 // 如果是可击中的目标
                 if (((1 << hit.collider.gameObject.layer) & hitTargets) != 0)
                 {
-                    Debug.Log("[" + dir + "] 可命中目标：" + hit.collider.name);
+                    //Debug.Log("[" + dir + "] 可命中目标：" + hit.collider.name);
                     GameObject arrowGO = Instantiate(arrow, transform.position + new Vector3(dir.x * mapGrid.cellSize.x, dir.y * mapGrid.cellSize.y, 0), Quaternion.identity);
                     arrowGO.GetComponent<Rigidbody2D>().velocity = new Vector2(dir.x * arrowSpeed, dir.y * arrowSpeed);
                     Destroy(this.gameObject);

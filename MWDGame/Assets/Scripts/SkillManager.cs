@@ -38,7 +38,7 @@ public class SkillManager : MonoBehaviour
             //帛画《导引图》
             case 102:
                 players[player].moveSpeed *= 1.2f;
-                Debug.Log("加速了一次");
+                //Debug.Log("加速了一次");
                 break;
             //“非衣”帛画
             case 103:
@@ -76,7 +76,7 @@ public class SkillManager : MonoBehaviour
                 //Physics2D.IgnoreCollision(playerSelf, soundWaveColl, false);
                 break;
             default:
-                Debug.LogError("没有找到对应编号的道具技能！");
+                //Debug.LogError("没有找到对应编号的道具技能！");
                 break;
         }
         players[player].playerInventory.ResetInvetory();

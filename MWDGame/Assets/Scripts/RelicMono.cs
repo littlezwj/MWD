@@ -18,11 +18,11 @@ public class RelicMono : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (ResourceManager.Instance != null)
         {
-            Debug.Log("ResourceManager.Instance 已成功找到！");
+            //Debug.Log("ResourceManager.Instance 已成功找到！");
         }
         else
         {
-            Debug.LogError("ResourceManager.Instance 未找到！请确认 ResourceManager 脚本已挂载并正确设置单例。");
+            //sDebug.LogError("ResourceManager.Instance 未找到！请确认 ResourceManager 脚本已挂载并正确设置单例。");
         }
         iconOnPlayer = ResourceManager.Instance.GetRelicById(relicId).iconOnPlayer;
         iconOnMap = ResourceManager.Instance.GetRelicById(relicId).iconOnMap;
@@ -31,7 +31,7 @@ public class RelicMono : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(coll.name + "物体进入");
+        //Debug.Log(coll.name + "物体进入");
         if (Time.time - spawnTime < 0.5f)
             return;
         else
