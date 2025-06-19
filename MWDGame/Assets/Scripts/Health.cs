@@ -13,6 +13,7 @@ public class Health : MonoBehaviour
 
     public float respawnDelay = 3f;
     private Vector3 spawnPosition;
+    public bool holdingFeiyi = false;
 
     private void Start()
     {
@@ -29,11 +30,19 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            DieAndRespawn();
+            if(!holdingFeiyi)  DieAndRespawn();
+            else
+            {
+                currentHealth++;
+                UpdateHealthUI();
+                holdingFeiyi = false;
+                transform.GetChild(0).GetComponent<PlayerInventory>().itemIsUsable = true;
+                transform.GetChild(0).GetComponent<PlayerInventory>().ResetInvetory();
+            }
         }
     }
 
-    void UpdateHealthUI()
+    public void UpdateHealthUI()
     {
         if (healthText != null)
         {
@@ -56,6 +65,15 @@ public class Health : MonoBehaviour
         transform.position = spawnPosition; // 回到出生点
         gameObject.SetActive(true); // 重新激活
         Debug.Log($"{gameObject.name} respawned!");
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Arrow")
+        {
+            TakeDamage();
+            Destroy(collision.gameObject);
+        }
     }
 
 }

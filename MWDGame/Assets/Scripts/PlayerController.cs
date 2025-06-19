@@ -18,8 +18,9 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private bool isMoving = false;
-    private Vector2 moveDirection;
+    public Vector2 moveDirection;
     private Vector3 targetPos;
+    public bool ghost = false;
 
     void Start()
     {
@@ -163,6 +164,7 @@ public class PlayerController : MonoBehaviour
 
     private bool CanMoveToNextTile(Vector2 direction)
     {
+        if (ghost) return true;
         Vector3Int currentCell = grid.WorldToCell(transform.position);
         Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
         Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);

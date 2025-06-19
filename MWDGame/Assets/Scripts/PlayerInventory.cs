@@ -10,7 +10,7 @@ public class PlayerInventory : MonoBehaviour
     private SpriteRenderer sr;
     public bool isEquipped = false;
     public int relicId;
-    private bool itemIsUsable;
+    public bool itemIsUsable;
     public int importantRelicID;
     public GameObject relicStandard;
 

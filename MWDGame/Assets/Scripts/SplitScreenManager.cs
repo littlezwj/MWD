@@ -117,8 +117,9 @@ public class SplitScreenManager : MonoBehaviour
         int defaultLayer = LayerMask.NameToLayer("Default");
         int obstacleLayer = LayerMask.NameToLayer("obstacleLayer");
         int uiLayer = LayerMask.NameToLayer("UI");
-        playerOneCamera.cullingMask = (1 << playerOneLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer) | (1 << uiLayer);
-        playerTwoCamera.cullingMask = (1 << playerTwoLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer) | (1 << uiLayer);
+        int playerLayer = LayerMask.NameToLayer("PlayerLayer");
+        playerOneCamera.cullingMask = (1 << playerLayer | 1 << playerOneLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer) | (1 << uiLayer);
+        playerTwoCamera.cullingMask = (1 << playerLayer | 1 << playerTwoLayerIndex) | (1 << defaultLayer) | (1 << obstacleLayer) | (1 << uiLayer);
     }
 
     void DisableExtraAudioListeners()

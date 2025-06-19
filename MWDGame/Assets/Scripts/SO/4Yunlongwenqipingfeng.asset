@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: eb009d94804602741a280c2dc6ea0529, type: 3}
-  m_Name: 2BohuaDaoyintu
+  m_Name: 4Yunlongwenqipingfeng
   m_EditorClassIdentifier: 
-  relicId: 102
-  relicName: "\u5E1B\u753B\u300A\u5BFC\u5F15\u56FE\u300B"
+  relicId: 104
+  relicName: "\u4E91\u9F99\u7EB9\u6F06\u5C4F\u98CE"
   iconOnPlayer: {fileID: 21300000, guid: 7acccb5ac1b45154e983a0dd3b99e2a3, type: 3}
   iconOnMap: {fileID: 21300000, guid: 7acccb5ac1b45154e983a0dd3b99e2a3, type: 3}
   isImportant: 0
   isUsable: 1
-  relicDescription: "\u53EF\u4EE5\u589E\u52A0\u79FB\u52A8\u901F\u5EA6"
+  relicDescription: "\u5E03\u7F6E\u673A\u5173\uFF0C\u6709\u4EBA\u5728\u9644\u8FD1\u7ECF\u8FC7\u65F6\u91CA\u653E\u5F29\u7BAD"

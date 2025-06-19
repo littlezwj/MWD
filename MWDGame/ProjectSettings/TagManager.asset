@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BlockA
   - BlockB
+  - Arrow
   layers:
   - Default
   - TransparentFX
@@ -16,7 +17,7 @@ TagManager:
   - Player1Layer
   - Player2Layer
   - obstacleLayer
-  - 
+  - PlayerLayer
   - 
   - 
   - 
