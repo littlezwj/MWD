@@ -33,7 +33,7 @@ public class SkillManager : MonoBehaviour
                 break;
             //帛画《导引图》
             case 102:
-                players[player].moveSpeed *= 1.5f;
+                players[player].moveSpeed *= 1.2f;
                 Debug.Log("加速了一次");
                 break;
             //“非衣”帛画
