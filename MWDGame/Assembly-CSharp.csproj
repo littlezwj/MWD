@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\SkillManager.cs" />
     <Compile Include="Assets\Scripts\RelicEffectBase.cs" />
     <Compile Include="Assets\Scripts\Block.cs" />
+    <Compile Include="Assets\Scripts\SceneTransitionController.cs" />
     <Compile Include="Assets\Scripts\PlayerInventory.cs" />
     <Compile Include="Assets\Scripts\GridManager.cs" />
     <Compile Include="Assets\Scripts\RelicManager.cs" />
@@ -73,13 +74,16 @@
     <Compile Include="Assets\Scripts\ArrowMove.cs" />
     <Compile Include="Assets\Scripts\SoundWaveExpand.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\TransitionRendererFeature.cs" />
     <Compile Include="Assets\Scripts\StealTrigger.cs" />
     <Compile Include="Assets\Scripts\SplitScreenManager.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\SO\RelicDetails.cs" />
     <Compile Include="Assets\Scripts\KeyItem.cs" />
+    <Compile Include="Assets\Scripts\StartToNextScene.cs" />
     <Compile Include="Assets\Scripts\ShovelPlacer.cs" />
     <Compile Include="Assets\Scripts\ArrowShooter.cs" />
+    <Compile Include="Assets\Scripts\TransitionPass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -95,6 +99,7 @@
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\Scripts\TransitionShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />

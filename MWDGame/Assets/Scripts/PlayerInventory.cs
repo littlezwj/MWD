@@ -37,7 +37,9 @@ public class PlayerInventory : MonoBehaviour
         if (!isEquipped)
         {
             isEquipped = true;
+            sr.enabled = true;
             sr.sprite = relicHolding.iconOnPlayer;
+            relicImage.enabled = true;
             relicImage.sprite = relicHolding.iconOnPlayer;
             relicImage.transform.GetChild(0).GetComponent<Text>().text = relicHolding.relicName;
             relicImage.transform.GetChild(1).GetComponent<Text>().text = relicHolding.relicDescription;
@@ -46,6 +48,8 @@ public class PlayerInventory : MonoBehaviour
         else
         {
             //TODO:玩家背包中已有道具的前提下获得新的道具
+            sr.enabled = true;
+            relicImage.enabled = true;
             relicImage.sprite = relicHolding.iconOnPlayer;
             relicImage.transform.GetChild(0).GetComponent<Text>().text = relicHolding.relicName;
             relicImage.transform.GetChild(1).GetComponent<Text>().text = relicHolding.relicDescription;
@@ -60,6 +64,8 @@ public class PlayerInventory : MonoBehaviour
             isEquipped = false;
             relicId = 0;
             sr.sprite = null;
+            sr.enabled = false;
+            relicImage.enabled = false;
             relicImage.sprite = null;
             relicImage.transform.GetChild(0).GetComponent<Text>().text = " ";
             relicImage.transform.GetChild(1).GetComponent<Text>().text = " ";
