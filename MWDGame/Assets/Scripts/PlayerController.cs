@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public Vector2 moveDirection;
     private Vector3 targetPos;
     public bool ghost = false;
+    public bool dizzy = false;
+    public bool isDizzyUser = false;
 
     void Start()
     {
@@ -35,15 +37,18 @@ public class PlayerController : MonoBehaviour
         
         if (!isMoving)
         {
-            Vector2 input = GetInput();
-
-            if (input != Vector2.zero)
+            if(!dizzy)
             {
-                moveDirection = input;
+                Vector2 input = GetInput();
 
-                if (CanMoveToNextTile(moveDirection))
+                if (input != Vector2.zero)
                 {
-                    StartCoroutine(MoveToNextTile(moveDirection));
+                    moveDirection = input;
+
+                    if (CanMoveToNextTile(moveDirection))
+                    {
+                        StartCoroutine(MoveToNextTile(moveDirection));
+                    }
                 }
             }
         }
@@ -164,11 +169,12 @@ public class PlayerController : MonoBehaviour
 
     private bool CanMoveToNextTile(Vector2 direction)
     {
-        if (ghost) return true;
+        
         Vector3Int currentCell = grid.WorldToCell(transform.position);
         Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
         Vector3 targetWorldPos = grid.GetCellCenterWorld(targetCell);
-
+        if (targetCell.x < -20 || targetCell.x > 11 || targetCell.y > 5 || targetCell.y < -7) return false;
+        if (ghost) return true;
         Collider2D hitObstacle = Physics2D.OverlapCircle(targetWorldPos, 0.1f, obstacleLayer);
         if (hitObstacle != null) return false;
 
