@@ -71,7 +71,7 @@ public class Health : MonoBehaviour
     {
         if(collision.gameObject.tag == "Arrow")
         {
-            TakeDamage();
+            TakeDamage(1);
             Destroy(collision.gameObject);
         }
     }
