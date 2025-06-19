@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 3BohuaFeiyi
   m_EditorClassIdentifier: 
   relicId: 103
-  relicName: 
+  relicName: "\u5E1B\u753B\u201C\u975E\u8863\u201D"
   iconOnPlayer: {fileID: 21300000, guid: df1607f99d9f2f84c98c049cf681744a, type: 3}
   iconOnMap: {fileID: 21300000, guid: df1607f99d9f2f84c98c049cf681744a, type: 3}
   isImportant: 0

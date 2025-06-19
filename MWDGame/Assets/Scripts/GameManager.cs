@@ -9,9 +9,9 @@ public class GameManager : MonoBehaviour
     // µ¥ÀýÊµÀý
     public static GameManager Instance { get; private set; }
 
-    public TextMeshProUGUI winDisplay;
-    public TextMeshProUGUI timerTextLeft;
-    public TextMeshProUGUI timerTextRight;
+    public Text winDisplay;
+    public Text timerTextLeft;
+    public Text timerTextRight;
     public float timeLeft = 60f;
     public bool player1Win = true;
 

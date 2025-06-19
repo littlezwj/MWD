@@ -39,16 +39,16 @@ public class PlayerInventory : MonoBehaviour
             isEquipped = true;
             sr.sprite = relicHolding.iconOnPlayer;
             relicImage.sprite = relicHolding.iconOnPlayer;
-            relicImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = relicHolding.relicName;
-            relicImage.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = relicHolding.relicDescription;
+            relicImage.transform.GetChild(0).GetComponent<Text>().text = relicHolding.relicName;
+            relicImage.transform.GetChild(1).GetComponent<Text>().text = relicHolding.relicDescription;
             itemIsUsable = relicHolding.isUsable;
         }
         else
         {
             //TODO:玩家背包中已有道具的前提下获得新的道具
             relicImage.sprite = relicHolding.iconOnPlayer;
-            relicImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = relicHolding.relicName;
-            relicImage.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = relicHolding.relicDescription;
+            relicImage.transform.GetChild(0).GetComponent<Text>().text = relicHolding.relicName;
+            relicImage.transform.GetChild(1).GetComponent<Text>().text = relicHolding.relicDescription;
             itemIsUsable = relicHolding.isUsable;
         }
     }
@@ -61,8 +61,8 @@ public class PlayerInventory : MonoBehaviour
             relicId = 0;
             sr.sprite = null;
             relicImage.sprite = null;
-            relicImage.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = " ";
-            relicImage.transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = " ";
+            relicImage.transform.GetChild(0).GetComponent<Text>().text = " ";
+            relicImage.transform.GetChild(1).GetComponent<Text>().text = " ";
         }
     }
 }

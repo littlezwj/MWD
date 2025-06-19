@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 2BohuaDaoyintu
   m_EditorClassIdentifier: 
   relicId: 102
-  relicName: "\u5E1B\u753B\u300A\u5BFC\u5F15\u56FE\u300B"
+  relicName: "\u5E1B\u753B\u201D\u5BFC\u5F15\u56FE\u201C"
   iconOnPlayer: {fileID: 21300000, guid: 37dd4ad19a7e3b9438a9fdd0178b2bd8, type: 3}
   iconOnMap: {fileID: 21300000, guid: 37dd4ad19a7e3b9438a9fdd0178b2bd8, type: 3}
   isImportant: 0
