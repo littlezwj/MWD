@@ -3699,6 +3699,7 @@ MonoBehaviour:
   shovelPlacer: {fileID: 1983041417}
   moveDirection: {x: 0, y: 0}
   ghost: 0
+  dizzy: 0
 --- !u!212 &396690926
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14608,6 +14609,7 @@ MonoBehaviour:
   shovelPlacer: {fileID: 1983041417}
   moveDirection: {x: 0, y: 0}
   ghost: 0
+  dizzy: 0
 --- !u!212 &1596815166
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18069,6 +18071,7 @@ MonoBehaviour:
   arrowShooter: {fileID: 0}
   arrowSpeed: 2.5
   mapGrid: {fileID: 0}
+  soundWave: {fileID: 0}
 --- !u!4 &1918576811
 Transform:
   m_ObjectHideFlags: 0

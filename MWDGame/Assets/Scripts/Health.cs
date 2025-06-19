@@ -10,16 +10,20 @@ public class Health : MonoBehaviour
     public int currentHealth;
     public GameObject healthUI; // 拖入 UI 父物体
     private TMP_Text healthText;
+    private SpriteRenderer dizzySprite;
 
     public float respawnDelay = 3f;
     private Vector3 spawnPosition;
     public bool holdingFeiyi = false;
+    public PlayerController playerController;
 
     private void Start()
     {
         currentHealth = maxHealth;
         spawnPosition = transform.position;
         healthText = healthUI.GetComponentInChildren<TMP_Text>();
+        dizzySprite = transform.GetChild(1).GetComponent<SpriteRenderer>();
+        playerController = gameObject.GetComponent<PlayerController>();
         UpdateHealthUI();
     }
 
@@ -48,6 +52,10 @@ public class Health : MonoBehaviour
         {
             healthText.text = currentHealth.ToString();
         }
+        if(dizzySprite != null)
+        {
+            dizzySprite.gameObject.SetActive(playerController.dizzy);
+        }
     }
 
     void DieAndRespawn()
@@ -74,6 +82,18 @@ public class Health : MonoBehaviour
             TakeDamage(1);
             Destroy(collision.gameObject);
         }
+        if (collision.gameObject.tag == "SoundWave" && !playerController.isDizzyUser)
+        {
+            playerController.dizzy = true;
+            UpdateHealthUI();
+            Invoke("DizzyOver", collision.GetComponent<SoundWaveExpand>().dizzyTime);
+        }
+    }
+
+    private void DizzyOver()
+    {
+        playerController.dizzy = false;
+        UpdateHealthUI();
     }
 
 }

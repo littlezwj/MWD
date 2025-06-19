@@ -11,6 +11,7 @@ public class SkillManager : MonoBehaviour
     public GameObject arrowShooter;
     public float arrowSpeed = 2.5f;
     public Grid mapGrid;
+    public GameObject soundWave;
 
     private void Awake()
     {
@@ -45,9 +46,8 @@ public class SkillManager : MonoBehaviour
                 break;
             //锥画漆弩机
             case 107:
-                PlayerController pc = players[player].GetComponent<PlayerController>();
-                GameObject arrowShoted = Instantiate(arrow, players[player].transform.position + new Vector3(pc.moveDirection.x * mapGrid.cellSize.x , pc.moveDirection.y * mapGrid.cellSize.x , 0), Quaternion.identity);
-                arrowShoted.GetComponent<Rigidbody2D>().velocity = new Vector2((int)pc.moveDirection.x * arrowSpeed, (int)pc.moveDirection.y * arrowSpeed);
+                GameObject arrowShoted = Instantiate(arrow, players[player].transform.position + new Vector3(players[player].moveDirection.x * mapGrid.cellSize.x , players[player].moveDirection.y * mapGrid.cellSize.x , 0), Quaternion.identity);
+                arrowShoted.GetComponent<Rigidbody2D>().velocity = new Vector2((int)players[player].moveDirection.x * arrowSpeed, (int)players[player].moveDirection.y * arrowSpeed);
                 break;
             //"冠人"男俑
             case 108:
@@ -56,11 +56,20 @@ public class SkillManager : MonoBehaviour
                 break;
             //帛画《车马仪仗图》
             case 109:
-                players[player].GetComponent<PlayerController>().ghost = true;
+                players[player].ghost = true;
                 Collider2D playerColl = players[player].GetComponent<Collider2D>();
                 string targetLayerName = "obstacleLayer";
                 float ignoreDuration = 60f;
                 StartCoroutine(IgnoreCollisionCoroutine(targetLayerName, playerColl, ignoreDuration));
+                break;
+            //二十五弦瑟
+            case 110:
+                Collider2D playerSelf = players[player].GetComponent<Collider2D>();
+                players[player].isDizzyUser = true;
+                GameObject soundWaveGO = Instantiate(soundWave, players[player].transform.position, Quaternion.identity);
+                soundWaveGO.GetComponent<SoundWaveExpand>().pc = players[player];
+                //Collider2D soundWaveColl = soundWaveGO.GetComponent<Collider2D>();
+                //Physics2D.IgnoreCollision(playerSelf, soundWaveColl, false);
                 break;
             default:
                 Debug.LogError("没有找到对应编号的道具技能！");

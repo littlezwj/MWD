@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\ShovelController.cs" />
     <Compile Include="Assets\Scripts\ArrowMove.cs" />
+    <Compile Include="Assets\Scripts\SoundWaveExpand.cs" />
     <Compile Include="Assets\Scripts\ResourceManager.cs" />
     <Compile Include="Assets\Scripts\StealTrigger.cs" />
     <Compile Include="Assets\Scripts\SplitScreenManager.cs" />
