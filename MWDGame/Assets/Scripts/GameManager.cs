@@ -44,6 +44,10 @@ public class GameManager : MonoBehaviour
         {
             GameCalculate(false);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            QuitGame();
+        }
     }
 
     IEnumerator StartCountdown()
@@ -80,5 +84,15 @@ public class GameManager : MonoBehaviour
     {
         player1Prompt.gameObject.SetActive(false);
         player2Prompt.gameObject.SetActive(false);
+    }
+    void QuitGame()
+    {
+#if UNITY_EDITOR
+        // 编辑器中退出运行
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+            // 打包后的游戏退出
+            Application.Quit();
+#endif
     }
 }

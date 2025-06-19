@@ -27,7 +27,7 @@ public class RelicManager : MonoBehaviour
         // 1. 是否生成遗物
         if (Random.value > generateProbability)
         {
-            Debug.Log("未触发生成遗物。");
+            //Debug.Log("未触发生成遗物。");
             return;
         }
 
@@ -40,7 +40,7 @@ public class RelicManager : MonoBehaviour
 
         if (total <= 0f)
         {
-            Debug.LogWarning("概率权重总和为0，无法生成遗物。");
+            //Debug.LogWarning("概率权重总和为0，无法生成遗物。");
             return;
         }
 
@@ -55,7 +55,7 @@ public class RelicManager : MonoBehaviour
             {
                 Instantiate(relicPrefab, position, Quaternion.identity);
                 relicPrefab.GetComponent<RelicMono>().relicId = ResourceManager.Instance.relicList[i].relicId;
-                Debug.Log($"生成了遗物：{relicPrefab.name}");
+                //Debug.Log($"生成了遗物：{relicPrefab.name}");
                 return;
             }
         }

@@ -60,7 +60,7 @@ public class Health : MonoBehaviour
 
     void DieAndRespawn()
     {
-        Debug.Log($"{gameObject.name} died!");
+        //Debug.Log($"{gameObject.name} died!");
         gameObject.SetActive(false); // 暂时关闭角色
         Invoke(nameof(Respawn), respawnDelay);
     }
@@ -72,7 +72,7 @@ public class Health : MonoBehaviour
 
         transform.position = spawnPosition; // 回到出生点
         gameObject.SetActive(true); // 重新激活
-        Debug.Log($"{gameObject.name} respawned!");
+        //Debug.Log($"{gameObject.name} respawned!");
     }
 
     public void OnTriggerEnter2D(Collider2D collision)
