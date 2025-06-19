@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public bool player1Win = true;
 
     private bool isRunning = false;
+    public Text player1Prompt;
+    public Text player2Prompt;
 
     private void Awake()
     {
@@ -63,7 +65,20 @@ public class GameManager : MonoBehaviour
 
     public void GameCalculate(bool player1Win)
     {
-            winDisplay.text = player1Win ? "Player1 Win!" : "Player2 Win!";
+            winDisplay.text = player1Win ? "盗墓人获胜！" : "守护人获胜！";
             winDisplay.gameObject.SetActive(true);
+    }
+
+    public void GameProcess()
+    {
+        player1Prompt.gameObject.SetActive(true);
+        player2Prompt.gameObject.SetActive(true);
+        Invoke("MessageOver", 3.0f);
+    }
+
+    public void MessageOver()
+    {
+        player1Prompt.gameObject.SetActive(false);
+        player2Prompt.gameObject.SetActive(false);
     }
 }

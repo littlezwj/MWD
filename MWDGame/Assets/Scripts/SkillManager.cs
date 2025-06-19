@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class SkillManager : MonoBehaviour
 {   
     public static SkillManager Instance { get; private set; }
@@ -12,6 +13,7 @@ public class SkillManager : MonoBehaviour
     public float arrowSpeed = 2.5f;
     public Grid mapGrid;
     public GameObject soundWave;
+
 
     private void Awake()
     {
@@ -29,6 +31,8 @@ public class SkillManager : MonoBehaviour
     {
         switch(relicId)
         {
+            case 100:
+                break;
             case 101:
                 break;
             //²¯»­¡¶µ¼ÒýÍ¼¡·
