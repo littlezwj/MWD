@@ -23,14 +23,12 @@ public class PlayerController : MonoBehaviour
     public bool ghost = false;
     public bool dizzy = false;
     public bool isDizzyUser = false;
-    private Animator animator;
 
     void Start()
     {
         SnapToGrid();
         rb = GetComponent<Rigidbody2D>();
         moveDirection = Vector2.up; // 初始默认朝上
-        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -142,9 +140,13 @@ public class PlayerController : MonoBehaviour
     private IEnumerator MoveToNextTile(Vector2 direction)
     {
         isMoving = true;
-        animator.SetFloat("Horizontal", direction.x);
-        animator.SetFloat("Vertical", direction.y);
-        animator.SetBool("isWalking", true);
+        // 设置左右方向时的朝向
+        if (direction.x != 0)
+        {
+            Vector3 scale = transform.localScale;
+            scale.x = direction.x > 0 ? -0.5f : 0.5f;
+            transform.localScale = scale;
+        }
         Vector3Int currentCell = grid.WorldToCell(transform.position);
         Vector3Int targetCell = currentCell + new Vector3Int((int)direction.x, (int)direction.y, 0);
         targetPos = grid.GetCellCenterWorld(targetCell);
@@ -157,7 +159,6 @@ public class PlayerController : MonoBehaviour
 
         transform.position = targetPos;
         isMoving = false;
-        animator.SetBool("isWalking", false);
         Vector2 input = GetInput();
         if (input != Vector2.zero && CanMoveToNextTile(input))
         {
